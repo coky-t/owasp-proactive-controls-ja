@@ -10,8 +10,8 @@ permalink: /v4/ja/
 
 # OWASP について
 
-The *Open Web Application Security Project* (OWASP) is a 501c3 non for profit educational charity dedicated to enabling organizations to design, develop, acquire, operate, and maintain secure software. All OWASP tools, documents, forums, and chapters are free and open to anyone interested in improving application security. We can be found at [www.owasp.org](https://www.owasp.org).
+*Open Web Application Security Project* (OWASP) は、組織が安全なソフトウェアを設計、開発、入手、運用、保守できるようにすることを目的とした 501c3 非営利教育慈善団体です。すべての OWASP ツール、ドキュメント、フォーラム、支部はすべてフリーで、アプリケーションセキュリティの向上に関心がある人なら誰でも開かれています。 [www.owasp.org](https://www.owasp.org) にあります。
 
-OWASP is a new kind of organization. Our freedom from commercial pressures allows us to provide unbiased, practical, cost effective information about application security.
+OWASP は新しいタイプの組織です。商業的な圧力から自由であるため、アプリケーションセキュリティに関する偏りがなく実用的で費用対効果の高い情報を提供できます。
 
-OWASP is not affiliated with any technology company. Similar to many open source software projects, OWASP produces many types of materials in a collaborative and open way. The OWASP Foundation is a not-for-profit entity that ensures the project's long-term success.
+OWASP はいかなるテクノロジ企業とも提携していません。多くのオープンソースソフトウェアプロジェクトと同様に、OWASP は協力的かつオープンな方法でさまざまな種類のマテリアルを作成しています。OWASP 財団はプロジェクトの長期的な成功を確保する非営利団体です。
