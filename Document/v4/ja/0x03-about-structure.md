@@ -9,7 +9,7 @@ order: 403
 
 # ドキュメント構成
 
-This document is structured as a list of security controls. The list is ordered by importance with list item number 1 being the most important:
+このドキュメントはセキュリティコントロールのリストとして構成されています。リストは重要度順に並んでおり、リスト項目番号 1 が最も重要です。
 
 * C1: アクセス制御を実装する (Implement Access Control)
 * C2: 暗号を正しい方法で使用する (Use Cryptography the right way)
@@ -22,15 +22,15 @@ This document is structured as a list of security controls. The list is ordered 
 * C9: セキュリティログ記録とモニタリングを実装する (Implement Security Logging and Monitoring)
 * C10: サーバーサイドリクエストフォージェリを阻止する (Stop Server Side Request Forgery)
 
-## Security Controls
+## セキュリティコントロール
 
-The description of each control has the same structure. The control itself has an unique name preceeded by the control number: **Cx: Control Name**, e.g., *C1: Implement Access Control*.
+それぞれのコントロールの説明は同じ構成になっています。コントロール自体には、コントロール番号が前に付く一意の名前 **Cx: コントロール名**、例 *C1: アクセス制御を実装する (Implement Access Control)* があります。
 
-Each control has the same sections:
+それぞれのコントロールには同じセクションがあります。
 
-- **説明 (Description)**: A detailed description of the control including some best practices to consider.
-- **脅威 (Threat(s)):** A threat or threats that this control counters.
-- **実装 (Implementation)**: Best practices and examples to illustrate how to implement each control.
-- **脆弱性の防止 (Vulnerabilities Prevented)**: List of prevented vulnerabilities or risks addressed (OWASP TOP 10 Risk, CWE, etc.)
-- **参考情報 (References)**: List of references for further study (OWASP Cheat sheet, Security Hardening Guidelines, etc.)
-- **ツール (Tools)**: Set of tools/projects to easily introduce/integrate security controls into your software.
+- **説明 (Description)**: 考慮すべきベストプラクティスを含むコントロールの詳細な説明。
+- **脅威 (Threat(s)):** このコントロールが対抗する脅威。
+- **実装 (Implementation)**: それぞれのコントロールの実装方法を説明するベストプラクティスおよび事例。
+- **防止される脆弱性 (Vulnerabilities Prevented)**: 防止される脆弱性や対処されるリスクのリスト (OWASP TOP 10 Risk, CWE, など)
+- **参考情報 (References)**: さらなる研究のための参考情報のリスト (OWASP Cheat sheet, Security Hardening Guidelines, など)
+- **ツール (Tools)**: ソフトウェアにセキュリティコントロールを簡単に導入/統合するためのツール/プロジェクトのセット。
