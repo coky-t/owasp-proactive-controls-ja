@@ -26,7 +26,7 @@ This is the unofficial Japanese translation of the [OWASP Proactive Controls](ht
 
 ## License
 
-[Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
+[Creative Commons Attribution-ShareAlike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/)
 
 ## Author (日本語訳)
 
