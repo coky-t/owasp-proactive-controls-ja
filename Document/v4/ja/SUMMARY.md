@@ -14,3 +14,4 @@
 - [C8: ブラウザがユーザーを守るのを支援する (Help the Browser defend its User)](c8-help-the-browser-defend-the-user.md)
 - [C9: セキュリティログ記録とモニタリングを実装する (Implement Security Logging and Monitoring)](c9-security-logging-and-monitoring.md)
 - [C10: サーバーサイドリクエストフォージェリを阻止する (Stop Server Side Request Forgery)](c10-stop-server-side-request-forgery.md)
+- [おわりに](final-word.md)

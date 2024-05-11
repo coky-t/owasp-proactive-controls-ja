@@ -23,6 +23,7 @@ This is the unofficial Japanese translation of the [OWASP Proactive Controls](ht
 * [C8: ブラウザがユーザーを守るのを支援する (Help the Browser defend its User)](Document/v4/ja/c8-help-the-browser-defend-the-user.md)
 * [C9: セキュリティログ記録とモニタリングを実装する (Implement Security Logging and Monitoring)](Document/v4/ja/c9-security-logging-and-monitoring.md)
 * [C10: サーバーサイドリクエストフォージェリを阻止する (Stop Server Side Request Forgery)](Document/v4/ja/c10-stop-server-side-request-forgery.md)
+* [おわりに](Document/v4/ja/final-word.md)
 
 ## License
 
