@@ -11,42 +11,42 @@ order: 413
 
 ## 説明
 
-Logging is a concept that most developers already use for debugging and diagnostic purposes. Security logging is an equally basic concept: to log security information during the runtime operation of an application. Monitoring is the live review of application and security logs using various forms of automation. The same tools and patterns can be used for operations, debugging and security purposes.
+ログ記録はほとんどの開発者がデバッグや診断の目的ですでに使用している概念です。セキュリティログ記録は同様に基本的な概念であり、アプリケーションの実行時操作の中でのセキュリティ情報をログ記録します。モニタリングはさまざまな形式の自動化を使用して、アプリケーションとセキュリティのログをライブでレビューすることです。同じツールとパターンを運用、デバッグ、セキュリティの目的に使用できます。
 
-### Benefits of Security Logging
+### セキュリティログ記録の利点
 
-Security logging can be used for:
-1. Feeding intrusion detection systems
-2. Forensic analysis and investigations
-3. Satisfying regulatory compliance requirements
+セキュリティログ記録は以下に使用できます。
+1. 侵入検知システムへの供給
+2. フォレンジック分析と調査
+3. 規制遵守要件の確認
 
-### Logging for Intrusion Detection and Response
+### 侵入検知と対応のためのログ記録
 
-Use logging to identify activity that indicates that a user is behaving maliciously. Potentially malicious activity to log includes:
-- Submitted data that is outside of an expected numeric range.
-- Submitted data that involves changes to data that should not be modifiable (select list, checkbox or other limited entry component).
-- Requests that violate server-side access control rules.
-- A more comprehensive list of possible detection points is available [here](https://cheatsheetseries.owasp.org/cheatsheets/Application_Logging_Vocabulary_Cheat_Sheet.html).
-When your application encounters such activity, your application should at the very least log the activity and mark it as a high severity issue. Ideally, your application should also respond to a possible identified attack, by for example invalidating the user’s session and locking the user’s account. The response mechanisms allow the software to react in realtime to possible identified attacks.
+ログ記録を使用して、ユーザーが悪意を持って行動していることを示すアクティビティを特定します。ログ記録する潜在的に悪意のあるアクティビティには以下があります。
+- 期待した数値範囲外の送信データ。
+- 変更不可データ (選択リスト、チェックボックス、その他の限定された入力コンポーネント) への変更を伴う送信データ。
+- サーバー側のアクセス制御ルールに違反するリクエスト。
+- 現実的な検知ポイントのより包括的なリストは [こちら](https://cheatsheetseries.owasp.org/cheatsheets/Application_Logging_Vocabulary_Cheat_Sheet.html) にあります。
+アプリケーションがそのようなアクティビティに遭遇した場合、アプリケーションは少なくともそのアクティビティをログ記録し、重大度の高い問題としてマークする必要があります。理想的には、アプリケーションは、たとえばユーザーのセッションを無効にしたり、ユーザーのアカウントをロックするなど、特定した攻撃の可能性に対応すべきでもあります。対応メカニズムにより、ソフトウェアは特定した攻撃の可能性にリアルタイムで反応できます。
 
-### Secure Logging Design
+### 安全なログ記録設計
 
-Logging solutions must be built and managed in a secure way. Secure Logging design may include the following:
-- Allow expected characters only and/or encode the input based on the target to prevent [log injection](https://www.owasp.org/index.php/Log_Injection) attacks. The preferred approach would be that the logging solution performs input escaping instead of dropping data: otherwise the logging solution might discard data which would be needed for a later analysis.
-- Do not log sensitive information. For example, do not log password, session ID, credit cards, or social security numbers.
-- Protect log integrity. An attacker may attempt to tamper with the logs. Therefore, the permission of log files and log changes audit should be considered.
-- Forward logs from distributed systems to a central, secure logging service. This will ensure log data cannot be lost if one node is compromised. This also allows for centralized or even automated monitoring.
+ログ記録ソリューションは安全な方法で構築および管理しなければなりません。安全なログ記録設計には以下を含むことがあります。
+- 期待した文字のみを許可したり、ターゲットに基づいて入力をエンコードして、[ログインジェクション](https://www.owasp.org/index.php/Log_Injection) 攻撃を防ぎます。お勧めのアプローチはログ記録ソリューションがデータを削除する代わりに入力エスケープを実行することです。そうしないと、ログ記録ソリューションはのちの分析に必要なデータを破棄するかもしれません。
+- 機密情報をログ記録してはいけません。たとえば、パスワード、セッション ID、クレジットカード、社会保障番号をログ記録しないでください。
+- ログの完全性を保護します。攻撃者はログを改竄しようとするかもしれません。そのため、ログファイルのパーミッションとログ変更の監査を検討する必要があります。
+- 分散システムから一元化した安全なログ記録サービスにログを転送します。これにより、一つのノードが侵害されても、ログデータを失うことはなくなります。また、集中監視や自動監視も可能になります。
 
 ## 実装
 
-The following is a list of security logging implementation best practices.
-- Follow a common logging format and approach within the system and across systems of an organization. An example of a common logging framework is the Apache Logging Services which helps provide logging consistency between Java, PHP, .NET, and C++ applications.
-- Do not log too much or too little. For example, make sure to always log the timestamp and identifying information including the source IP and user-id, but be careful not to log private (such as username) or confidential data (such as business data) unless extra care is taken.
-- Pay close attention to time syncing across nodes to ensure that timestamps are consistent.
+以下はセキュリティログ記録実装のベストプラクティスのリストです。
+- 組織のシステム内およびシステム間で共通のログ記録フォーマットとアプローチに従います。共通のログ記録フレームワークの例としては Apache Logging Services があり、Java, PHP, .NET, C++ アプリケーション間で一貫したログ記録を提供するのに役立ちます。
+- ログ記録は多すぎても少なすぎてもいけません。たとえば、タイムスタンプと、ソース IP や ユーザー ID などの識別情報は必ずログ記録するようにしますが、特別な注意を払わない限り、プライベートデータ (ユーザー名など) や機密データ (業務データなど) をログ記録しないように注意してください。
+- ノード間の時刻同期に注意を払い、タイムスタンプが一貫していることを確保します。
 
-## 脆弱性の防止
+## 防止される脆弱性
 
-- Brute-Force Attacks against Login-Mechanisms
+- ログインメカニズムに対するブルートフォース攻撃
 
 ## 参考情報
 
@@ -54,4 +54,3 @@ The following is a list of security logging implementation best practices.
 - [OWASP Logging Guide](https://owasp.org/www-pdf-archive/OWASP_Logging_Guide.pdf)
 
 ## ツール
-
