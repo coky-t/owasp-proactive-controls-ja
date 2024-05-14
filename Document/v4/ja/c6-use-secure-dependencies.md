@@ -10,51 +10,51 @@ order: 410
 
 ## 説明
 
-It is a common practice in software development to leverage libraries and frameworks. Secure libraries and software frameworks with embedded security help software developers prevent security-related design and implementation flaws. A developer writing an application from scratch might not have sufficient knowledge, time, or budget to properly implement or maintain security features. Leveraging security frameworks (both open source and vendor) help accomplish security goals more efficiently and accurately.
+ソフトウェア開発ではライブラリやフレームワークを活用することが一般的です。セキュリティを組み込んだ安全なライブラリやソフトウェアフレームワークは、ソフトウェア開発者がセキュリティ関連の設計や実装の欠陥を防ぐのに役立ちます。アプリケーションを何もないところから作成する開発者には、セキュリティ機能を適切に実装したり保守するために十分な知識、時間、予算がないかもしれません。セキュリティフレームワーク (オープンソースとベンダーの両方) を活用することで、セキュリティ目標をより効率的かつ正確に達成することに役立ちます。
 
-When possible, the emphasis should be on using the existing secure features of frameworks rather than importing yet another third party libraries, which requires regular updates and maintenance. It is preferable to have developers take advantage of what they're already using instead of forcing yet another library on them.
+可能であれば、定期的なアップデートやメンテナンスが櫃となる別のサードパーティライブラリをインポートするのではなく、フレームワークの既存の安全な機能を使うことに重点を置くべきです。開発者に別のライブラリを強要するのではなく、既に使用しているものを活用してもらうほうがよいでしょう。
 
 
-When incorporating third party libraries or frameworks into your software, it is important to consider the following two categories of best practices:
+サードパーティのライブラリやフレームワークをソフトウェアに組み込む際には、以下の二つのベストプラクティスを考慮することが重要です。
 
-1. Identify trusted libraries and frameworks to bring into your software.
-2. Monitor and update packages to ensure that your software is not vulnerable to the possible security vulnerabilities introduced by the third party components .
+1. 信頼できるライブラリやフレームワークを特定して、ソフトウェアに導入します。
+2. パッケージを監視および更新して、サードパーティコンポーネントによってもたらされる可能性のあるセキュリティ脆弱性に対して、ソフトウェアが脆弱でないようにします。
 
 ## 実装
 
-Below each of these categories are further detailed to help secure your software.
+以下ではこれらの各カテゴリについて、ソフトウェアを保護するための詳細を説明します。
 
-### Best Practices to Identify Trusted libraries
+### 信頼できるライブラリを特定するためのベストプラクティス
 
-Below are listed a few criteria you can use to select the next library or framework for your software. This is not an exhaustive list, but is a good start.
+ソフトウェアの次のライブラリやフレームワークを選択するために使用できる基準をいくつか以下に示します。これは網羅的なリストではありませんが、出発点としてはよいでしょう。
 
-1. **Sources**: Download recommended security libraries from official sources over secure links and prefer signed packages to reduce the chance of including a modified, malicious component (See A08:2021-Software and Data Integrity Failures).
+1. **ソース (Sources)**: 公式ソースから安全なリンクを介して推奨セキュリティライブラリをダウンロードし、署名付きパッケージを優先して、改変された悪意のあるコンポーネントが含まれる可能性を減らします (A08:2021-ソフトウェアとデータの整合性の不具合 (Software and Data Integrity Failures) を参照)。
 
-2. **Popularity**: Leverage libraries and frameworks used by many applications which have around large communities. Consider data points such as the number of GitHub stars a package’s source code repository has received, and number of downloads from within a package manager.
+2. **評判 (Popularity)**: 大規模なコミュニティを持つ多くのアプリケーションで使用されているライブラリやフレームワークを活用します。パッケージのソースコードリポジトリが獲得した GitHub スターの数や、パッケージマネージャ内からのダウンロード数などのデータポイントを考慮します。
 
-3. **Activity:** Ensure that the library/ framework is actively maintained and issues are resolved in a timely fashion.
+3. **アクティビティ (Activity):** ライブラリやフレームワークが積極的に保守されており、問題がタイムリーに解決されていることを確認します。
 
-4. **Maturity**: Use stable versions . Projects in early stages of development area higher risk to your software .
+4. **成熟度 (Maturity)**: 安定バージョンを使用します。開発の初期段階にあるプロジェクトではソフトウェアに対するリスクが高くなります。
 
-5. **Complexity**: A large, complex library with lots of dependencies, is more difficult to incorporate into your software. Also, a high number of dependencies indicates a higher number of future upgrades to ensure all those dependencies are up-to-date and secured.
+5. **複雑度 (Complexity)**: 依存関係が多く、大規模で複雑なライブラリは、ソフトウェアに組み込むことがより困難になります。また、依存関係の数が多いということは、それらの依存関係すべてを最新にして安全に保つために、将来のアップグレードの回数が多くなることを示しています。
 
-6. **Security**: If the package is open source, you can use static application security testing (SAST) or [Software Composition Analysis](https://en.everybodywiki.com/Software_Composition_Analysis#:~:text=Software%20Composition%20Analysis%20%28SCA%29%20comprises,been%20integrated%20into%20your%20applications.) (SCA) to help identify malicious code or security weaknesses, before first including them.
+6. **セキュリティ (Security)**: パッケージがオープンソースである場合、静的アプリケーションセキュリティテスト (SAST) や [ソフトウェア構成分析](https://en.everybodywiki.com/Software_Composition_Analysis#:~:text=Software%20Composition%20Analysis%20%28SCA%29%20comprises,been%20integrated%20into%20your%20applications.) (SCA) を使用して、最初に含める前に悪意のあるコードやセキュリティ上の弱点を特定するのに役立ちます。
 
-### Best Practices to Keep them Secure
+### 安全に保つためのベストプラクティス
 
-New security vulnerabilities are disclosed every day and are published in public databases like the NIST National Vulnerability Database ([NVD](https://nvd.nist.gov/)) which identifies publicly known vulnerabilities using Common Vulnerabilities and Exposures (CVE). Furthermore, exploits made available in public databases allow attackers to automate their attacks. As a result of this, it is important to ensure on a regular basis that your software is free of well-known security vulnerabilities.
+新しいセキュリティ脆弱性は毎日開示されており、NIST National Vulnerability Database ([NVD](https://nvd.nist.gov/)) などのパブリックデータベースで公開されています。NVD では共通脆弱性識別子 (Common Vulnerabilities and Exposures, CVE) を使用して公に知られている脆弱性を特定します。さらに、パブリックデータベースで利用可能なエクスプロイトにより、攻撃者は攻撃を自動化できます。このため、ソフトウェアに既知のセキュリティ脆弱性がないことを定期的に確認することが重要です。
 
-1. **Maintain an inventory catalog** of all the third party components. It is recommended to automatically create SBOMs ([Software-Bill-Of-Materials](https://cyclonedx.org/)) from within the build pipeline. A SBOM contains all used third-party dependencies and their versions and can be automatically monitored by a variety of supply chain management tools.
+1. すべてのサードパーティコンポーネントの **インベントリカタログを保守します** 。ビルドパイプライン内から SBOM ([Software-Bill-Of-Materials](https://cyclonedx.org/)) を自動的に作成することをお勧めします。SBOM には、使用されているすべてのサードパーティの依存関係とそのバージョンが含まれており、さまざまなサプライチェーン管理ツールによって自動的に監視できます。
 
-2. **Perform continuous checks.** Use your SBOMs together with periodic or continuous monitoring tools such as OWASP dependency-track to automatically detect well-known publicly disclosed vulnerabilities.
+2. **継続的なチェックを実行します。** SBOM を OWASP dependency-track などの定期的または継続的な監視ツールと併用して、一般に公開されている既知の脆弱性を自動的に検出します。
 
-3. **Verify for security early and often** - integrate SCA tools in early stages of software development, to gain visibility in the number and criticality of security vulnerabilities of the software and its dependencies from every stage of the software development lifecycle.
+3. **早期かつ頻繁にセキュリティを検証します。** ソフトウェア開発の初期段階で SCA ツールを統合し、ソフトウェア開発ライフサイクルのあらゆる段階でソフトウェアとその依存関係のセキュリティ脆弱性の数と重大度を可視化します。
 
-4. **Proactively** update libraries and components. Updating software must be a recurring task that occurs throughout the lifecycle of the application or product, from ideation to retirement.
+4. **積極的に** ライブラリとコンポーネントを更新します。ソフトウェアの更新は、アプリケーションや製品のライフサイクル全体にわたって、構想から廃止に至るまで、繰り返し発生するタスクである必要があります。
 
-## 脆弱性の防止
+## 防止される脆弱性
 
-Secure frameworks and libraries can help to prevent a wide range of web application vulnerabilities. It is critical to keep these frameworks and libraries up to date as described in using [vulnerable and outdated components with known vulnerabilities Top 10 2021](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/).
+安全なフレームワークとライブラリはウェブアプリケーションのさまざまな脆弱性を防ぐのに役立ちます。[Top 10 2021 既知の脆弱性を持つ脆弱で古くなったコンポーネント](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/) の使用で説明されているように、これらのフレームワークやライブラリを最新の状態に保つことが重要です。
 
 ## 参考情報
 
@@ -63,8 +63,8 @@ Secure frameworks and libraries can help to prevent a wide range of web applicat
 
 ## ツール
 
-- [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) ­- to identify project dependencies and check for publicly disclosed vulnerabilities
-- [OWASP Dependency-Track](https://owasp.org/www-project-dependency-track/) - periodically monitor SBOM files for new vulnerabilities
-- Retire.JS scanner for JavaScript libraries
-- [Renovate for automated dependencies updates](https://github.com/renovatebot/renovate)
-- [Harbor](https://goharbor.io/) : an open source registry that secures artifacts with policies and role-based access control
+- [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) ­- プロジェクトの依存関係を特定し、公開されている脆弱性をチェックします
+- [OWASP Dependency-Track](https://owasp.org/www-project-dependency-track/) - SBOM ファイルに新しい脆弱性がないか定期的に監視します
+- Retire.JS スキャナ - JavaScript ライブラリ向け
+- [Renovate](https://github.com/renovatebot/renovate) - 依存関係の自動更新向け
+- [Harbor](https://goharbor.io/) : ポリシーとロールベースのアクセス制御でアーティファクトを保護するオープンソースレジストリ
