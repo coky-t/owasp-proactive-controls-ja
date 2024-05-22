@@ -11,15 +11,15 @@ order: 412
 
 ## 説明
 
-Browsers are the gateway to the web for most users. As such, it's critical to employ robust security measures to protect the user from various threats. This section outlines the techniques and policies that can be implemented to bolster browser security.
+ブラウザはほとんどのユーザーにとってウェブへの入り口です。そのため、堅牢なセキュリティ対策を採用して、さまざまな脅威からユーザーを守ることが重要です。このセクションではブラウザのセキュリティを強化するために実装できる技法とポリシーを説明します。
 
-While we are currently focusing upon traditional web browsers, please note that there is a diverse world of other client programs out there, ranging from API clients to smart-tvs.
+現在、従来のウェブブラウザに焦点を当てていますが、API クライアントからスマートテレビまで、他のクライアントプログラムの世界も多様であることに注意してください。
 
-### Opportunistic Security and Browser-Support
+### 補強型セキュリティとブラウザサポート
 
-Instructing the web browser to enforce security measures is always opportunistic: the web application cannot verify that the browser heeds the guidance given and thus these security measures should always be seen as additional (and optional) **Hardening Measures** that further complicate an attacker’s life.
+ウェブブラウザにセキュリティ対策を実施するように指示することは常に場当たり的です。ウェブアプリケーションはブラウザが与えられたガイダンスに従うかどうかを検証できません。したがって、これらのセキュリティ対策は常に、攻撃者のライフをさらに複雑にする追加の (およびオプションの) **強化策** とみなすべきです。
 
-In addition, web browsers must actually support the security guidance offered by web applications. The level of support differs between different browsers and their versions. Web sites such as <https://canisuse.com> can be used to check which web browser (versions) support which features. The supported security features can change over time, e.g., the X-XSS-Protection header has been removed from all major browsers; the browsers’ default behavior can change over time as seen with Referrer-Policy; and even the semantics of existing headers can change over time as seen with X-Content-Type-Options.
+In addition, web browsers must actually support the security guidance offered by web applications. The level of support differs between different browsers and their versions. Web sites such as <https://caniuse.com> can be used to check which web browser (versions) support which features. The supported security features can change over time, e.g., the X-XSS-Protection header has been removed from all major browsers; the browsers’ default behavior can change over time as seen with Referrer-Policy; and even the semantics of existing headers can change over time as seen with X-Content-Type-Options.
 
 While the changing browser feature set can be problematic, typically newer browser provide more security features. They sometimes even enable them by default. Explicitly setting those security headers can unify the different browsers’ behaviors and thus reduces maintenance effort.
 
@@ -64,7 +64,7 @@ Modern browsers do not only display HTML code but are used to interface with mul
 CSRF attacks abuse an existing trust relationship between the web browser and web sites.
 - Same-Origin Cookies: Marking cookies as SameSite can mitigate the risk of cross-origin information leakage, as well as provide some protection against cross-site request forgery attacks.
 
-## 脆弱性の防止
+## 防止される脆弱性
 
 Implementing these browser defenses can help mitigate a range of vulnerabilities, including but not limited to:
 - Cross-Site Scripting (XSS)
