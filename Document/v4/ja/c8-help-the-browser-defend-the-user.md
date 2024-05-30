@@ -19,60 +19,60 @@ order: 412
 
 ウェブブラウザにセキュリティ対策を実施するように指示することは常に場当たり的です。ウェブアプリケーションはブラウザが与えられたガイダンスに従うかどうかを検証できません。したがって、これらのセキュリティ対策は常に、攻撃者のライフをさらに複雑にする追加の (およびオプションの) **強化策** とみなすべきです。
 
-In addition, web browsers must actually support the security guidance offered by web applications. The level of support differs between different browsers and their versions. Web sites such as <https://caniuse.com> can be used to check which web browser (versions) support which features. The supported security features can change over time, e.g., the X-XSS-Protection header has been removed from all major browsers; the browsers’ default behavior can change over time as seen with Referrer-Policy; and even the semantics of existing headers can change over time as seen with X-Content-Type-Options.
+さらに、ウェブブラウザはウェブアプリケーションが提供するセキュリティガイダンスを実際にサポートしなければなりません。サポートのレベルはブラウザやそのバージョンによって異なります。<https://caniuse.com> のようなウェブサイトを使用して、どのウェブブラウザ (のバージョン) がどの機能をサポートしているかを確認できます。サポートされるセキュリティ機能は時間の経過とともに変更される可能性があります。たとえば、X-XSS-Protection ヘッダはすべての主要なブラウザから削除されています。Referrer-Policy に見られるように、ブラウザのデフォルトの動作は時間の経過とともに変化します。また、X-Content-Type-Options で見られるように、既存ヘッダのセマンティクスさえも変化する可能性があります。
 
-While the changing browser feature set can be problematic, typically newer browser provide more security features. They sometimes even enable them by default. Explicitly setting those security headers can unify the different browsers’ behaviors and thus reduces maintenance effort.
+ブラウザの機能セットの変化が問題になることもありますが、一般的に新しいブラウザはより多くのセキュリティ機能を提供します。デフォルトで有効になっていることもあります。これらのセキュリティヘッダを明示的に設定することで、さまざまなブラウザの動作を統一でき、メンテナンスの労力を軽減できます。
 
-A fully compromised browser might not heed security guidance but if an adversary was able to take full control of a browser, they already have far more damaging attack paths than just ignoring security guidance.
+完全に侵害されたブラウザはセキュリティガイダンスに従わないかもしれませんが、攻撃者がブラウザを完全にコントロールできたとすると、セキュリティガイダンスを無視するよりもはるかに大きな損害をもたらす攻撃経路をすでに有しています。
 
 ## 実装
 
-Typically, there are two (Security Header specific) ways that web applications can use to instruct web browsers about security: HTTP headers and HTML tags.
+一般的に、ウェブアプリケーションがウェブブラウザにセキュリティについて指示するために使用できる方法 (セキュリティヘッダ特有の方法) は二つあります。HTTP ヘッダと HTML タグです。
 
-The behavior taken if a security directive is given more than one time is security header specific. For example, a duplicate X-Frame-Options header will disable its protection while a duplicate Content-Security-Policy header will lead to a stricter policy thus tightening its security.
-The following is a non-exhaustive list of potential Hardening mechanisms:
+セキュリティディレクティブが複数回指定されている場合の動作はセキュリティヘッダによって異なります。たとえば、重複する X-Frame-Options ヘッダはその保護を無効にしますが、重複する Content-Security-Policy ヘッダはより厳格なポリシーを適用してそのセキュリティを強化します。
+以下は潜在的な堅牢化メカニズムのリストですが、網羅はしていません。
 
-### Configure the Browser to prevent Information Disclosure
+### ブラウザを設定して情報漏洩を防ぐには
 
-Information disclosure occurs if the browser transmits information over unencrypted channels (HTTP instead of HTTPS) or sends our too much information in the first place (e.g., through the Referer-Header). The following mechanisms reduce the possibility of information disclosure:
-- **HTTP Strict Transport Security (HSTS)**: Ensures that browsers only connect to your website over HTTPS, preventing SSL stripping attacks.
-- **Content Security Policy (CSP)**: CSP policies can instruct the browser to automatically upgrade HTTP connections to HTTPS. In addition directives such as the form-src directive can be used to prevent forms from transmitting data to external sites.
-- **Referrer-Policy**: when navigating between pages, the browser’s HTTP request includes the current URL within the outgoing request. This URL can include sensitive information. Using Referrer-Policy, a web-site can unify the browser’s behavior and select which information should be transmitted between web sites.
-- The cookie’s **secure** flag: while not a HTTP header, this security flag is related to information disclosure. If set, the web browser will not transmit a cookie over unencrypted HTTP transports.
+情報漏洩はブラウザが暗号化されていないチャネル (HTTPS ではなく HTTP) で情報を送信したり、そもそも過剰な情報を (Referer ヘッダなどを通じて) 送信する場合に発生します。以下のメカニズムは情報漏洩の可能性を低減します。
+- **HTTP Strict Transport Security (HSTS)**: ブラウザが HTTPS でのみウェブサイトに接続するようにし、SSL ストリッピング攻撃を防ぎます。
+- **Content Security Policy (CSP)**: CSP ポリシーは HTTP 接続を自動的に HTTPS にアップグレードするようブラウザに指示できます。さらに、form-src ディレクティブのようなディレクティブを使用して、フォームが外部サイトにデータを送信することを防ぐことができます。
+- **Referrer-Policy**: ページ間を移動する際、ブラウザの HTTP リクエストは送信リクエスト内に現在の URL を含みます。この URL は機密情報を含むことがあります。Referrer-Policy を使用すると、ウェブサイトはブラウザの動作を統一して、ウェブサイト間でどの情報を送信するか選択できます。
+- クッキーの **secure** フラグ: HTTP ヘッダではありませんが、このセキュリティフラグは情報漏洩に関連しています。設定した場合、ウェブブラウザは暗号化していない HTTP トランスポート経由でクッキーを送信しません。
 
-### Reduce the potential Impact of XSS
+### XSS の潜在的な影響を軽減するには
 
-Javascript based XSS attacks have been very common for decades. To reduce the potential impact of vulnerabilities, browsers offer rich defensive mechanisms that should reduce the potential impact of XSS attacks:
-- **Content Security Policy (CSP)**: CSP is a powerful tool that helps prevent a wide range of attacks including Cross-Site Scripting (XSS) and data injection. Strict CSP policies can effectively disable inline JavaScript and style, making it much harder for attackers to inject malicious content.  
-    Host Allowlist CSP: Blocking all third-party JavaScript can significantly reduce the attack surface and prevent the exploitation of vulnerabilities in third-party libraries.  
-    **Trusted Types**: This is a browser API that helps prevent DOM-based cross-site scripting vulnerabilities by ensuring only secure data types can be inserted into the DOM.
-- The cookie’s **httpOnly** flag: while not a HTTP header, setting this flag prevents Javascript from accessing this cookie and should be done esp. For Session cookies.
+Javascript ベースの XSS 攻撃は、何十年もの間、非常に一般的でした。脆弱性の潜在的な影響を軽減するために、ブラウザは XSS 攻撃の潜在的な影響を軽減する豊富な防御メカニズムを提供しています。
+- **Content Security Policy (CSP)**: CSP はクロスサイトスクリプティング (XSS) やデータインジェクションなどのさまざまな攻撃を防ぐのに役立つ強力なツールです。Strict CSP ポリシーはインライン JavaScript とスタイルを効果的に無効化できるため、攻撃者が悪意のあるコンテンツを注入することをはるかに困難にします。
+    ホスト許可リスト CSP: すべてのサードパーティ JavaScript をブロックすることで、攻撃対象領域を大幅に減らし、サードパーティライブラリの脆弱性の悪用を防止できます。
+    **Trusted Types**: これは安全なデータ型のみを DOM に挿入できるようにすることで、DOM ベースのクロスサイトスクリプティング脆弱性を防ぐのに役立つブラウザ API です。
+- クッキーの **httpOnly** フラグ: HTTP ヘッダではありませんが、このフラグを設定すると Javascript がこのクッキーにアクセスできなくなるため、特にセッションクッキーでは設定すべきです。
 
-### Prevent Clickjacking
+### クリックジャッキングを防ぐには
 
-Clickjacking, also known as UI-redress attacks, try to confuse users by overlaying a malicious site on top of a benign one. The user believes to interact with the benign one while in reality they are interacting with the malicious one.
-- **X-Frame-Options (XFO)**: Prevents clickjacking attacks by ensuring your content is not embedded into other sites. This header is finicky to use, e.g., when used twice it is disabled.
-- **Content Security Policy (CSP)**: the different frame-\* directives allow for fine-grained control of which sites are allowed to include the current website as well as which other sites can be included within the current website.
+クリックジャッキングは、UI リドレス攻撃とも呼ばれ、悪意のあるサイトを無害なサイトの上に重ねることで、ユーザーを混乱させようとします。ユーザーは無害なサイトとやり取りしていると思い込んでいますが、実際には悪意のあるサイトとやり取りしています。
+- **X-Frame-Options (XFO)**: コンテンツが他のサイトに埋め込まれないようにすることで、クリックジャッキング攻撃を防止します。このヘッダは扱いが難しく、たとえば二回使用すると無効になります。
+- **Content Security Policy (CSP)**: さまざまな frame-\* ディレクティブにより、どのサイトが現在のウェブサイトを含むことができるか、他のどのサイトが現在のウェブサイト内に含められるかを細かく制御できます。
 
-### Control the Browser’s Advanced Capabilities
+### ブラウザの高度な機能をコントロールするには
 
-Modern browsers do not only display HTML code but are used to interface with multiple system components such as WebCams, Microphones, USB Devices, etc. While many websites do not utilize those features, attackers can abuse those.
-- **Permission Policy**: through a permission policy a web-site can instruct the browser that the defined features will not be used by the web-site. For example, a web-site can state that it will never capture user audio. Even if an attacker is able to inject malicious code, they can thus not instruct the web-browser to capture audio.
+現代のブラウザは HTML コードを表示するだけでなく、ウェブカメラ、マイク、USB デバイスなどの複数のシステムコンポーネントとのインタフェースとしても使用されています。多くのウェブサイトではこれらの機能を利用していませんが、攻撃者はこれらを悪用できます。
+- **Permission Policy**: パーミッションポリシーを通じて、ウェブサイトは定義された機能がそのウェブサイトで使用されないことをブラウザに指示できます。たとえば、ウェブサイトはユーザーの音声をキャプチャしないことを宣言できます。攻撃者が悪意のあるコードを注入できたとしても、ウェブブラウザに音声をキャプチャするように指示することはできません。
 
-### Prevent CSRF Attacks
+### CSRF 攻撃を防ぐには
 
-CSRF attacks abuse an existing trust relationship between the web browser and web sites.
-- Same-Origin Cookies: Marking cookies as SameSite can mitigate the risk of cross-origin information leakage, as well as provide some protection against cross-site request forgery attacks.
+CSRF 攻撃はウェブブラウザとウェブサイト間の既存の信頼関係を悪用します。
+- Same-Origin クッキー: クッキーを SameSite としてマークすることで、クロスオリジン情報漏洩のリスクを軽減し、クロスサイトリクエストフォージェリ攻撃に対するある程度の保護も提供できます。
 
 ## 防止される脆弱性
 
-Implementing these browser defenses can help mitigate a range of vulnerabilities, including but not limited to:
-- Cross-Site Scripting (XSS)
-- Cross-Site Request Forgery (CSRF)
-- Clickjacking
-- Data Theft through insecure transmission
-- Session Hijacking
-- Abusing unintended browser hardware access (microphone, cameras, etc.)
+これらのブラウザ防御を実装することで以下のようなさまざまな脆弱性を軽減できます。
+- クロスサイトスクリプティング (XSS)
+- クロスサイトリクエストフォージェリ (CSRF)
+- クリックジャッキング
+- 安全でない通信によるデータ窃取
+- セッションハイジャック
+- 意図しないブラウザのハードウェアアクセス (マイク、カメラなど) の悪用
 
 ## ツール
 - [Web Check](https://github.com/Lissy93/web-check)
