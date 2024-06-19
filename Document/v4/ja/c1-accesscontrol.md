@@ -17,10 +17,10 @@ permalink: /v4/ja/c1-accesscontrol
 
 ## 脅威
 
-- An attacker could take advantage of a loosely configured access control policy to access data the organization did not intend to make accessible.
-- An attacker could discover multiple access control components within an application and exploit the weakest.
-- An administrator could forget to decommission an old account, and an attacker could discover that account and use it to access data.
-- An attacker could gain access to data that had a policy that dropped into a final step of allowing access. (Lack of default deny)
+- 攻撃者は緩く構成されたアクセス制御ポリシーに付け込んで、組織がアクセス可能にするつもりがないデータにアクセスできるかもしれません。
+- 攻撃者はアプリケーション内の複数のアクセス制御コンポーネントを発見し、最も弱いものを悪用できるかもしれません。
+- 管理者が古いアカウントを廃止することを忘れ、攻撃者がそのアカウントを発見して、それを使用してデータにアクセスできるかもしれません。
+- 攻撃者はアクセスを許可する最終段階にドロップするポリシーを持つデータへのアクセスを獲得できるかもしれません。 (デフォルト拒否の欠如)
 
 ## 実装
 
