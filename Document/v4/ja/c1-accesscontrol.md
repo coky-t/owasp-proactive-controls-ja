@@ -10,10 +10,10 @@ permalink: /v4/ja/c1-accesscontrol
 # C1: アクセス制御を実装する (Implement Access Control)
 
 ## 説明
-Access Control (or Authorization) is allowing or denying specific requests from a user, program, or process. With each access control decision, a given subject requests access to a given object. Access control is the process that considers the defined policy and determines if a given subject is allowed to access a given object.
-Access control also involves the act of granting and revoking those privileges.
-Access Control often applies on multiple levels, e.g., given an application with a database backend, it applies both on the business logic level as well as on a database row level. In addition, applications can offer multiple ways of performing operations (e.g., through APIs or the website). All those different levels and access paths must be aligned, i.e., use the same access control checks, to protect against security vulnerabilities.
-Authorization (verifying access to specific features or resources) is not equivalent to authentication (verifying identity).
+アクセス制御 (または認可) とは、ユーザー、プログラム、プロセスからの特定の要求を許可または拒否することです。アクセス制御の判定ごとに、所定の主体が所定のオブジェクトへのアクセスを要求します。アクセス制御は定義されたポリシーを考慮し、所定の主体に所定のオブジェクトへのアクセスを許可するかどうかを決定します。
+アクセス制御にはそれらの権限を付与したり取り消したりする行為も含みます。
+アクセス制御は多くの場合、複数のレベルに適用します。たとえば、データベースをバックエンドとするアプリケーションの場合、ビジネスロジックレベルとデータベース行レベルの両方に適用します。さらに、アプリケーションは操作を実行する複数の方法 (API 経由やウェブサイトなど) を提供することがあります。セキュリティ脆弱性から保護するには、これらすべてのさまざまなレベルとアクセスパスを揃える、つまり同じアクセス制御チェックを使用しなければなりません。
+認可 (所定の機能やリソースへのアクセスを検証すること) は認証 (身元を検証すること) と同じではありません。
 
 ## 脅威
 
@@ -87,7 +87,7 @@ deleteAccount();
 
 Attribute or feature-based access control checks of this nature are the starting point to building well-designed and feature-rich access control systems. This type of programming also allows for greater access control customization capability over time.
 
-## 脆弱性の防止
+## 防止される脆弱性
 
 - [OWASP Top 10 2021-A01_2021-Broken Access Control](https://owasp.org/Top10/A01_2021-Broken_Access_Control/)
 - [CWE Top 25 - 11:CWE-862 Missing Authorization](https://cwe.mitre.org/data/definitions/862.html)
