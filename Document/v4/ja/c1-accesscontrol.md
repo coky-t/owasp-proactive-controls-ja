@@ -13,7 +13,7 @@ permalink: /v4/ja/c1-accesscontrol
 アクセス制御 (または認可) とは、ユーザー、プログラム、プロセスからの特定の要求を許可または拒否することです。アクセス制御の判定ごとに、所定の主体が所定のオブジェクトへのアクセスを要求します。アクセス制御は定義されたポリシーを考慮し、所定の主体に所定のオブジェクトへのアクセスを許可するかどうかを決定します。
 アクセス制御にはそれらの権限を付与したり取り消したりする行為も含みます。
 アクセス制御は多くの場合、複数のレベルに適用します。たとえば、データベースをバックエンドとするアプリケーションの場合、ビジネスロジックレベルとデータベース行レベルの両方に適用します。さらに、アプリケーションは操作を実行する複数の方法 (API 経由やウェブサイトなど) を提供することがあります。セキュリティ脆弱性から保護するには、これらすべてのさまざまなレベルとアクセスパスを揃える、つまり同じアクセス制御チェックを使用しなければなりません。
-認可 (所定の機能やリソースへのアクセスを検証すること) は認証 (身元を検証すること) と同じではありません。
+認可 (特定の機能やリソースへのアクセスを検証すること) は認証 (アイデンティティを検証すること) と同じではありません。
 
 ## 脅威
 
@@ -24,16 +24,16 @@ permalink: /v4/ja/c1-accesscontrol
 
 ## 実装
 
-Below is a minimum set of access control design requirements that should be considered at the initial stages of application development.
+以下は、アプリケーションの初期段階で考慮すべきアクセス制御設計要件の最小限のセットです。
 
-**1) Design Access Control Thoroughly Up Front**
-Once you have chosen a specific access control design pattern, it is often difficult and time-consuming to re-engineer access control in your application with a new pattern. Access Control is one of the main areas of application security design that must be thoroughly designed up front, especially when addressing requirements like multi-tenancy and horizontal (data dependent) access control.
+**1) アクセス制御を前もって徹底的に設計する**
+特定のアクセス制御設計パターンを選択すると、新しいパターンでアプリケーションのアクセス制御を再設計することはしばしば困難で時間がかかります。アクセス制御はアプリケーションセキュリティ設計の主要な領域の一つであり、特にマルチテナントや水平 (データ依存) アクセス制御などの要件に対処する場合、前もって徹底的に設計しなければなりません。
 
-Two core types of access control design should be considered.
+アクセス制御設計では二つの中核となるタイプを考慮すべきです。
 
-- Role Based Access Control (RBAC) is a model for controlling access to resources where permitted actions on resources are identified with roles rather than with individual subject identities.
-- Attribute Based Access Control (ABAC) will grant or deny user access based on arbitrary attributes of the user and arbitrary attributes of the object, and environment conditions that may be globally recognized, and more relevant to the policies at hand.
-Access Control design may start simple but can often become complex and feature-heavy security control. When evaluating the access control capability of software frameworks, ensure that your access control functionality will allow for customization for your specific access control feature need.
+- ロールベースのアクセス制御 (RBAC) はリソースへのアクセスを制御するためのモデルであり、リソースに対して許可されたアクションは個々の主体のアイデンティティではなくロールで識別されます。
+- アトリビュートベースのアクセス制御 (ABAC) は、ユーザーの任意のアトリビュートとオブジェクトの任意のアトリビュート、およびグローバルに認識され、現在のポリシーとの関連性が高い環境条件に基づいて、ユーザーアクセスを許可または拒否します。
+アクセス制御の設計は最初はシンプルですが、複雑で機能の多いセキュリティ制御になることがよくあります。ソフトウェアフレームワークのアクセス制御の性能を評価する際には、アクセス制御機能が特定のアクセス制御特性のニーズに合わせてカスタマイズできることを確認してください。
 
 **2) Force Every Access Request to Go Through an Access Control Check**
 Ensure that all access requests are forced to go through an access control verification layer. Technologies like Java filters or other automatic request processing mechanisms are ideal programming components that will ensure that all requests go through an access control check. This is refered to as _Policy Enforcement Point_ in [RFC 2904](https://datatracker.ietf.org/doc/html/rfc2904#section-4.3).
