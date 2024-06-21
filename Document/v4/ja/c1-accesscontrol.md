@@ -35,13 +35,13 @@ permalink: /v4/ja/c1-accesscontrol
 - アトリビュートベースのアクセス制御 (ABAC) は、ユーザーの任意のアトリビュートとオブジェクトの任意のアトリビュート、およびグローバルに認識され、現在のポリシーとの関連性が高い環境条件に基づいて、ユーザーアクセスを許可または拒否します。
 アクセス制御の設計は最初はシンプルですが、複雑で機能の多いセキュリティ制御になることがよくあります。ソフトウェアフレームワークのアクセス制御の性能を評価する際には、アクセス制御機能が特定のアクセス制御特性のニーズに合わせてカスタマイズできることを確認してください。
 
-**2) Force Every Access Request to Go Through an Access Control Check**
-Ensure that all access requests are forced to go through an access control verification layer. Technologies like Java filters or other automatic request processing mechanisms are ideal programming components that will ensure that all requests go through an access control check. This is refered to as _Policy Enforcement Point_ in [RFC 2904](https://datatracker.ietf.org/doc/html/rfc2904#section-4.3).
+**2) すべてのアクセス要求がアクセス制御チェックを経るように強制する**
+すべてのアクセス要求がアクセス制御検証レイヤを経るように強制します。Java フィルタや他の自動要求処理メカニズムなどのテクノロジは、すべての要求がアクセス制御チェックを経るようにする理想的なプログラミングコンポーネントです。これは [RFC 2904](https://datatracker.ietf.org/doc/html/rfc2904#section-4.3) では _ポリシー適用ポイント (Policy Enforcement Point)_ と呼ばれています。
 
-**3) Consolidate the access control check**
+**3) アクセス制御チェックを統合する**
 Use a single access control procedure or routine. This prevents the scenario where you have multiple access control implementations, where most are correct, but some are flawed. By using a centralized approach, you can focus security resources on reviewing and fixing one central library or function that performs the access control check, and then reuse it throughout your code base and organization.
 
-**4) Deny by Default**
+**4) デフォルトで拒否する**
 Ensure that by default, all the requests are denied, unless they are specifically allowed. This also includes accessing API (REST or webhooks) with missing access controls.
 There are many ways that this rule will manifest in the application code. Some examples are:
 
@@ -52,13 +52,13 @@ There are many ways that this rule will manifest in the application code. Some e
 3. When a new feature is added to an application, all users should be denied to use it until it’s properly configured.
 
 
-**5) Principle of Least Privilege / Just in Time (JIT), Just Enough Access (JEA)**
+**5) 最小権限の原則 / ジャストインタイム (JIT), ジャストイナフアクセス (JEA)**
 
 An example of implementing that principle is to create dedicated privileged roles and accounts for every organization function that requires highly privileged activities and avoid using an “admin” role/account that is fully privileged daily.
 
 To further improve the security, you can implement Just-in-Time (JIT) or Just-enough-Access (JEA): ensure that all users, programs, or processes are only given just enough access to achieve their current mission. This access should be provided just in time, when the subject makes the request, and the access should be granted for a short time. Be wary of systems that do not provide granular access control configuration capabilities.
 
-**6) Do not Hardcode Roles**
+**6) ロールをハードコードしない**
 
 Many application frameworks default to access control that is role based. It is common to find application code filled with checks of this nature.
 
@@ -75,7 +75,7 @@ Be careful about this type of role-based programming in code. It has the followi
 - Large codebases with many access control checks can make it difficult to audit or verify the overall application access control policy.
 - Hard coded roles can also be seen as a backdoor when discovered during audits.
 
-**7) ABAC Policy Enforcement Point Example**
+**7) ABAC ポリシー実施ポイントの例**
 
 Please consider the following access control enforcement points using this following programming methodology:
 
