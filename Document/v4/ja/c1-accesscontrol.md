@@ -42,14 +42,14 @@ permalink: /v4/ja/c1-accesscontrol
 単一のアクセス制御手順またはルーチンを使用します。これにより、複数のアクセス制御実装があり、ほとんどは正しいが一部に欠陥がある、というシナリオを防ぎます。一元化されたアプローチを使用することで、アクセス制御チェックを実行する一つの一元的なライブラリや関数のレビューと修正にセキュリティリソースを集中し、コードベースと組織全体でそれを再利用できます。
 
 **4) デフォルトで拒否する**
-Ensure that by default, all the requests are denied, unless they are specifically allowed. This also includes accessing API (REST or webhooks) with missing access controls.
-There are many ways that this rule will manifest in the application code. Some examples are:
+明示的に許可されていない限り、すべてのリクエストがデフォルトで拒否されるようにします。これにはアクセス制御が欠落している API (REST や Webhook) へのアクセスも含みます。
+このルールがアプリケーションコードに現れる方法は多数あります。例をいくつかあげます。
 
-1. Application code may throw an error or exception while processing access control requests. In these cases, access control should always be denied.
+1. アプリケーションコードはアクセス制御要求の処理中にエラーや例外を投げることがあります。このような場合、アクセス制御は常に拒否されるべきです。
 
-2. When an administrator creates a new user or a user registers for a new account, that account should have minimal or no access by default until that access is configured.
+2. 管理者が新しいユーザーを作成したり、ユーザーが新しいアカウントを登録する際、そのアカウントは、そのアクセスが構成されるまで、デフォルトで最小限のアクセスしかできないか、あるいはアクセスできないようにすべきです。
 
-3. When a new feature is added to an application, all users should be denied to use it until it’s properly configured.
+3. アプリケーションに新しい機能を追加した際、それが適切に構成されるまで、すべてのユーザーがその機能を使用できないようにすべきです。
 
 
 **5) 最小権限の原則 / ジャストインタイム (JIT), ジャストイナフアクセス (JEA)**
