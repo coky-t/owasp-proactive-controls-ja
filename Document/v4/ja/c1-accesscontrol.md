@@ -39,7 +39,7 @@ permalink: /v4/ja/c1-accesscontrol
 すべてのアクセス要求がアクセス制御検証レイヤを経るように強制します。Java フィルタや他の自動要求処理メカニズムなどのテクノロジは、すべての要求がアクセス制御チェックを経るようにする理想的なプログラミングコンポーネントです。これは [RFC 2904](https://datatracker.ietf.org/doc/html/rfc2904#section-4.3) では _ポリシー適用ポイント (Policy Enforcement Point)_ と呼ばれています。
 
 **3) アクセス制御チェックを統合する**
-Use a single access control procedure or routine. This prevents the scenario where you have multiple access control implementations, where most are correct, but some are flawed. By using a centralized approach, you can focus security resources on reviewing and fixing one central library or function that performs the access control check, and then reuse it throughout your code base and organization.
+単一のアクセス制御手順またはルーチンを使用します。これにより、複数のアクセス制御実装があり、ほとんどは正しいが一部に欠陥がある、というシナリオを防ぎます。一元化されたアプローチを使用することで、アクセス制御チェックを実行する一つの一元的なライブラリや関数のレビューと修正にセキュリティリソースを集中し、コードベースと組織全体でそれを再利用できます。
 
 **4) デフォルトで拒否する**
 Ensure that by default, all the requests are denied, unless they are specifically allowed. This also includes accessing API (REST or webhooks) with missing access controls.
