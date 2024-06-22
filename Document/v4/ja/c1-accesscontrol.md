@@ -54,9 +54,9 @@ permalink: /v4/ja/c1-accesscontrol
 
 **5) 最小権限の原則 / ジャストインタイム (JIT), ジャストイナフアクセス (JEA)**
 
-An example of implementing that principle is to create dedicated privileged roles and accounts for every organization function that requires highly privileged activities and avoid using an “admin” role/account that is fully privileged daily.
+この原則を実装する例としては、高度な権限アクティビティを必要とする組織機能ごとに専用の権限ロールとアカウントを作成して、日常的に完全な権限を持つ「管理者」ロールやアカウントの使用を避けること、があります。
 
-To further improve the security, you can implement Just-in-Time (JIT) or Just-enough-Access (JEA): ensure that all users, programs, or processes are only given just enough access to achieve their current mission. This access should be provided just in time, when the subject makes the request, and the access should be granted for a short time. Be wary of systems that do not provide granular access control configuration capabilities.
+セキュリティをさらに向上させるには、ジャストインタイム (JIT) やジャストイナフアクセス (JEA) を導入するとよいでしょう。すべてのユーザー、プログラム、プロセスには、それらの現在のミッションを達成するために十分なアクセスのみが付与されます。このアクセスは、その主体が要求した時にジャストインタイムで提供されるべきであり、アクセスは短時間のみ許可されるべきです。きめ細かなアクセス制御構成機能を提供しないシステムには注意してください。
 
 **6) ロールをハードコードしない**
 
