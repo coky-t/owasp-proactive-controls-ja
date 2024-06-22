@@ -60,7 +60,7 @@ permalink: /v4/ja/c1-accesscontrol
 
 **6) ロールをハードコードしない**
 
-Many application frameworks default to access control that is role based. It is common to find application code filled with checks of this nature.
+多くのアプリケーションフレームワークはロールベースのアクセス制御をデフォルトとしています。この種のチェックが満載のアプリケーションコードを見かけることがよくあります。
 
 ~~~ java
 if (user.hasRole("ADMIN")) || (user.hasRole("MANAGER")) {
@@ -68,12 +68,12 @@ deleteAccount();
 }
 ~~~
 
-Be careful about this type of role-based programming in code. It has the following limitations or dangers:
+コード内でこのタイプのロールベースのプログラミングには注意してください。以下のような制限や危険があります。
 
-- Role-based programming of this nature is fragile. It is easy to create incorrect or missing role checks in code.
-- Hard-Coded Roles do not allow for multi-tenancy. Extreme measures like forking the code or adding checks for each customer will be required to allow role-based systems to have different rules for different customers.
-- Large codebases with many access control checks can make it difficult to audit or verify the overall application access control policy.
-- Hard coded roles can also be seen as a backdoor when discovered during audits.
+- この種のロールベースのプログラミングは脆弱です。コード内にロールチェックの間違いや欠落を簡単に作成します。
+- ハードコードされたロールはマルチテナントを可能にしません。ロールベースのシステムで顧客ごとに異なるルールを持つようにするには、コードをフォークしたり、顧客ごとにチェックを追加するような極端な手段が必要になります。
+- 多くのアクセス制御チェックを伴う大規模なコードベースでは、アプリケーション全体のアクセス制御ポリシーの監査や検証を困難に可能性があります。
+- ハードコードされたロールは、監査時に発見された際、バックドアと見なされることもあります。
 
 **7) ABAC ポリシー実施ポイントの例**
 
