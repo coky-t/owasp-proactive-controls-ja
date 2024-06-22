@@ -77,7 +77,7 @@ deleteAccount();
 
 **7) ABAC ポリシー実施ポイントの例**
 
-Please consider the following access control enforcement points using this following programming methodology:
+以下のプログラミング方法を用いて、以下のアクセス制御実施ポイントを検討してください。
 
 ~~~ java
 if (user.hasPermission("DELETE_ACCOUNT")) {
@@ -85,7 +85,7 @@ deleteAccount();
 }
 ~~~
 
-Attribute or feature-based access control checks of this nature are the starting point to building well-designed and feature-rich access control systems. This type of programming also allows for greater access control customization capability over time.
+この種のアトリビュートや機能ベースのアクセス制御チェックは、適切に設計されて機能が豊富なアクセス制御システムを構築する出発点となります。このタイプのプログラミングは時間の経過とともにより大きなアクセス制御のカスタマイズ性能も向上します。
 
 ## 防止される脆弱性
 
@@ -99,11 +99,11 @@ Attribute or feature-based access control checks of this nature are the starting
 - [OWASP Cheat Sheet: Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
 - [OWASP ASVS V4 Access Control](https://owasp.org/www-project-application-security-verification-standard/)
 - [OWASP Testing Guide: Authorization Testing](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/05-Authorization_Testing/)
-- [OAuth2.0](https://oauth.net/2/) protocol for authorization
+- [OAuth2.0](https://oauth.net/2/) 認可プロトコル
 - [Draft OAuth2.1](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-10)
 - [Policy Enforcement in RFC 2904](https://datatracker.ietf.org/doc/html/rfc2904#section-4.3)
 
 ## ツール
 
-- [ZAP](https://www.zaproxy.org/) with the optional [Access Control Testing](https://www.zaproxy.org/docs/desktop/addons/access-control-testing/) add-on
+- [ZAP](https://www.zaproxy.org/) とオプションの [Access Control Testing](https://www.zaproxy.org/docs/desktop/addons/access-control-testing/) アドオン
 - [Open Policy Agent](https://www.openpolicyagent.org/)
