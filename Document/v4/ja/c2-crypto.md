@@ -11,19 +11,19 @@ permalink: /v4/ja/c2-crypto
 
 ## 説明
 
-Sensitive data such as passwords, credit card numbers, health records, personal information and business secrets require extra protection, particularly if that data falls under privacy laws (EU’s General Data Protection Regulation GDPR), financial data protection rules such as PCI Data Security Standard (PCI DSS) or other regulations.
+パスワード、クレジットカード番号、医療記録、個人情報、企業秘密などの機密データは、特にそのデータがプライバシー法 (EU の一般データ保護規則 GDPR)、PCI データセキュリティ標準 (PCI DSS) などの金融データ保護規則、またはその他の規制に該当する場合、特別な保護が必要です。
 
-Attackers can steal data from web and web service applications in a number of ways. For example, if sensitive information is sent over the internet without communications security, then an attacker on a shared wireless connection could capture and steal another user’s data. Also, an attacker could use SQL Injection to steal passwords and other credentials from an applications database and expose that information to the public.
+攻撃者はさまざまな方法でウェブアプリケーションやウェブサービスアプリケーションからデータを窃取できます。たとえば、機密情報を通信セキュリティなしでインターネット経由で送信すると、共有ワイヤレス接続上の攻撃者が他のユーザーのデータを捕捉して窃取するかもしれません。また、攻撃者は SQL インジェクションを使用して、アプリケーションデータベースからパスワードやその他のクレデンシャルを窃取し、その情報を一般に公開するかもしれません。
 
-Privacy is assurance that the confidentiality of, and access to, certain information about an entity is protected. Users of the things developers build want their information protected from disclosure.
+プライバシーとは、ある主体に関する特定の情報の機密性とその情報へのアクセスが保護されることを保証することです。開発者が構築するもののユーザーは自分の情報が開示されないように保護されることを望んでいます。
 
-Protect sensitive data such as passwords, credit card numbers, health records, personal information, and business secrets.
+パスワード、クレジットカード番号、医療記録、個人情報、企業秘密などの機密データを保護します。
 
-Regulations exist to force companies to protect user’s personal information. The European Union values individual privacy, such that they created the EU General Data Protection Regulation GDPR). Financial data protection rules such as PCI Data Security Standard (PCI DSS) also exist to protect cardholder privacy.
+企業に対してユーザーの個人情報を保護するように強制するための規制が存在します。欧州連合は個人のプライバシーを重視しており、EU 一般データ保護規則 (GDPR) を制定しました。PCI データセキュリティ標準 (PCI DSS) などの金融データ保護規則もカード所有者のプライバシーを保護するために存在します。
 
-Cryptography is the art or science concerning the principles, means, and methods for rendering plain information unintelligible and restoring encrypted information to intelligible form. Individual user data requires cryptography to ensure it is properly cared for when stored.
+暗号技術とは、平文の情報を判読不能にし、暗号化された情報を判読可能な形式に復元するための原理、手段、手法に関する技術や化学です。個々のユーザーデータは、保存時に適切に管理されるように暗号化が必要です。
 
-#### Classify data types in your application
+#### アプリケーションのデータ型を分類する
 
 It’s critical to classify data in your system and determine which level of sensitivity each piece of data belongs to. Each data category can then be mapped to protection rules necessary for each level of sensitivity. For example, public marketing information that is not sensitive may be categorized as public data which is ok to place on the public website. Credit card numbers may be classified as private user data which will need to be encrypted while stored, processed or in transit.
 
@@ -41,24 +41,24 @@ When it comes to cryptography, there are a few simple rules:
 - Do not create your own cryptographic protocols. The creation of a cryptographic protocol is a tricky proposition. When NIST created AES, they had an open competition where the best cryptographers worldwide submitted proposals and then looked for flaws in the other proposals. Instead of using your developer cycles to create a new crypto protocol, use an existing, battle-tested standard. Focus your innovation on making your feature or product better.
 - Do not implement cryptographic routines. Use an existing library that implements cryptographic routines.
 
-### Protect data at rest
+### 保存時のデータを保護する
 
 The first rule of sensitive data management is to avoid storing sensitive data when at all possible. If you must store sensitive data then make sure it is cryptographically protected in some way to avoid unauthorized disclosure and modification.
 Cryptography (or crypto) is one of the more advanced topics of information security and one whose understanding requires the most schooling and experience. It is difficult to get right because there are many approaches to encryption, each with advantages and disadvantages that need to be thoroughly understood by web solution architects and developers. In addition, serious cryptography research is typically based on advanced mathematics and number theory, providing a serious barrier to entry.
 Designing or building cryptographic algorithms is very error-prone (see side-channel attacks). Instead of building cryptographic capability from scratch, it is strongly recommended that peer-reviewed and open solutions be used, such as the Google Tink project, Libsodium, and secure storage capability built into many software frameworks and cloud services.
 
-#### Store passwords safely
+#### パスワードを安全に保存する
 
 Most web applications will face the challenge of storing user’s passwords to set up authentication services. Store the passwords safely to ensure an attacker cannot quickly obtain them.
 Do not store the passwords in plain text anywhere in the database. Always use a hashing function to store passwords. Enhance the hashing function by adding a random salt for each item to increase the randomness of hashes.
 
-#### Special Case: Application Secrets management
+#### 特殊なケース: アプリケーションシークレット管理
 
 Applications contain numerous “secrets” that are needed for security operations. These include certificates, SQL connection passwords, third party service account credentials, passwords, SSH keys, encryption keys and more. The unauthorized disclosure or modification of these secrets could lead to complete system compromise. In managing application secrets, consider the following:
 Don’t store secrets in code, config files or pass them through environment variables. Use tools like GitRob or TruffleHog to scan code repos for secrets. Your code should be written in a way that even if your code would be disclosed, e.g., due to a defective configured github repository, your running applications are still secure.
 Keep keys and your other application-level secrets in a secrets vault like KeyWhiz or Hashicorp’s Vault project , Amazon KMS, or AWS Secrets Manager to provide secure storage and access to application-level secrets at run-time. Many web-frameworks such as Ruby on Rails provide integrated ways of dealing with secrets and credentials.
 
-#### Key Lifecycle
+#### 鍵のライフサイクル
 
 Secret keys are used in applications with a number of sensitive functions. For example, secret keys can be used to sign JWTs, protect credit cards, provide various forms of authentication as well as facilitate other sensitive security features. In managing keys, a number of rules should be followed including
 
@@ -69,30 +69,30 @@ Secret keys are used in applications with a number of sensitive functions. For e
 - Build support for changing cryptographic algorithms to prepare for future needed changes
 - Build application features to support and handle key rotation gracefully. This can happen on a periodic base or after a key has been compromised.
 
-### Protect data in transit
+### 転送時のデータを保護する
 
 Sensitive data such as passwords, credit card numbers, health records, personal information and business secrets require extra protection, particularly if that data falls under privacy laws (EU’s General Data Protection Regulation GDPR), financial data protection rules such as PCI Data Security Standard (PCI DSS) or other regulations.
 Attackers can steal data from web and web service applications in a number of ways. For example, if sensitive information is sent over the internet without communications security, then an attacker on a shared wireless connection could capture and steal another user’s data. Also, an attacker could use SQL Injection to steal passwords and other credentials from an applications database and expose that information to the public.
 
-#### Use current cryptographic protocols
+#### 現行の暗号プロトコルを使用する
 
 When developing web applications, use TLSv1.2 or TLSv1.3, preferably TLSv1.3. If possible, investigate the usage of HTTP/2 or HTTP/3 as they warrant the usage of security TLS versions/algorithms.
 - Directly turn off other older protocols to avoid protocol downgrade attacks.
 - Do not offer HTTP. Disable both HTTP and SSL compression.
 - Always utilize a secure random number generator (RNG).
 
-#### Instruct Clients to enforce Transport Level Encryption
+#### クライアントにトランスポートレベルの暗号化を実施するように指示する
 
 Web servers can instruct web browsers to uphold minimal transport-level security:
 - Use the Strict-Transport-Security Header to enforce opportunistic encryption and certificate validation checks.
 - Content-Security-Policy allows for automatic client-side upgrade from HTTP to HTTPS.
 - When setting cookies, always utilize the “secure” flag to prevent transmission over HTTP.
 
-### Cryptography changes over Time
+### 暗号技術は時間とともに変化する
 
 Cryptographic recommendations change over time. To allow for this, make cryptographic choices such as used algorithms or key sizes configurable. If the application needs to support high availability, design key-rollover procedures.
 
-## 脆弱性の防止
+## 防止される脆弱性
 
 - <https://owasp.org/Top10/A02_2021-Cryptographic_Failures/>
 - <https://mas.owasp.org/MASVS/controls/MASVS-CRYPTO-1/>
