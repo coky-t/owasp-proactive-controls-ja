@@ -25,13 +25,13 @@ permalink: /v4/ja/c2-crypto
 
 #### アプリケーションのデータ型を分類する
 
-It’s critical to classify data in your system and determine which level of sensitivity each piece of data belongs to. Each data category can then be mapped to protection rules necessary for each level of sensitivity. For example, public marketing information that is not sensitive may be categorized as public data which is ok to place on the public website. Credit card numbers may be classified as private user data which will need to be encrypted while stored, processed or in transit.
+システム内のデータを分類し、各データがどの機密レベルに属するかを判断することが重要です。そうすることで、各データカテゴリは各機密レベルに必要な保護ルールにマップできます。たとえば、機密ではない公開マーケティング情報は公開データとして分類され、公開ウェブサイトに掲載しても問題ありません。クレジットカード番号は保存時、処理時、転送時に暗号化する必要があるプライベートユーザーデータとして分類されるかもしれません。
 
-Data classification can also be mandated by legislation, e.g., GDPR when serving users within the European Union.
+データ分類は、たとえば欧州連合のユーザーにサービスを提供する場合の GDPR のように、法律によって義務付けられることもあります。
 
-Classify the data sent, processed, and stored in your system and determine what level of sensitivity the data belongs to. Categorize the data to define specific protection rules for each type. The rule creation enables your team to perform data minimization and try not to store sensitive data whenever possible.
+システムで送信、処理、保存されるデータを分類し、データがどの機密レベルに属するかを判断します。データを分類して、タイプごとに特定の保護ルールを定義します。ルールの作成により、チームはデータの最小化を実行し、可能な限り機密データを保存しないようにできます。
 
-For example, public marketing information that is not sensitive may be categorized as public data, which is okay to place on the public website and does not need to be encrypted. Credit card numbers need to be encrypted while stored, processed, and in transit.
+たとえば、機密性のない公開マーケティング情報は公開データとして分類され、公開ウェブサイトに掲載しても問題ないため、暗号化する必要はありません。クレジットカード番号は保存時、処理時、転送時に暗号化する必要があります。
 
 ## 実装
 
