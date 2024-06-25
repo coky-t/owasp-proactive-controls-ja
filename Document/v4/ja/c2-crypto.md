@@ -35,11 +35,11 @@ permalink: /v4/ja/c2-crypto
 
 ## 実装
 
-When it comes to cryptography, there are a few simple rules:
+暗号に関しては、いくつかのシンプルなルールがあります。
 
-- Never transmit plain-text data. The technical capability exists to easily encrypt all data that is sent between any point A and B. Embrace the use of cryptography to protect all data at rest and in transit.
-- Do not create your own cryptographic protocols. The creation of a cryptographic protocol is a tricky proposition. When NIST created AES, they had an open competition where the best cryptographers worldwide submitted proposals and then looked for flaws in the other proposals. Instead of using your developer cycles to create a new crypto protocol, use an existing, battle-tested standard. Focus your innovation on making your feature or product better.
-- Do not implement cryptographic routines. Use an existing library that implements cryptographic routines.
+- 決してプレーンテキストデータを送信してはいけません。A と B 地点の間で送信されるすべてのデータを簡単に暗号化できる技術的能力が存在します。暗号化を使用して、保存時および転送時のすべてのデータを保護します。
+- 独自の暗号プロトコルを作成してはいけません。暗号プロトコルの作成は難しい課題です。NIST が AES を作成した時、世界中の優秀な暗号技術者が提案を提出し、他の提案の欠陥を探す公開コンペを行いました。開発者サイクルを使用して新しい暗号プロトコルを作成するのではなく、既存の実践テスト済みの標準を使用してください。機能や製品を改善することにイノベーションを集中しましょう。
+- 暗号ルーチンを実装してはいけません。暗号ルーチンを実装する既存のライブラリを使用します。
 
 ### 保存時のデータを保護する
 
