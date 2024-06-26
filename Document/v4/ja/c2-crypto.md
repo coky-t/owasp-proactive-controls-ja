@@ -43,9 +43,9 @@ permalink: /v4/ja/c2-crypto
 
 ### 保存時のデータを保護する
 
-The first rule of sensitive data management is to avoid storing sensitive data when at all possible. If you must store sensitive data then make sure it is cryptographically protected in some way to avoid unauthorized disclosure and modification.
-Cryptography (or crypto) is one of the more advanced topics of information security and one whose understanding requires the most schooling and experience. It is difficult to get right because there are many approaches to encryption, each with advantages and disadvantages that need to be thoroughly understood by web solution architects and developers. In addition, serious cryptography research is typically based on advanced mathematics and number theory, providing a serious barrier to entry.
-Designing or building cryptographic algorithms is very error-prone (see side-channel attacks). Instead of building cryptographic capability from scratch, it is strongly recommended that peer-reviewed and open solutions be used, such as the Google Tink project, Libsodium, and secure storage capability built into many software frameworks and cloud services.
+機密データ管理の第一のルールは、可能な限り機密データを保存しないことです。機密データを保存しなければならない場合は、不正な開示や改変を避けるために、何らかの方法で暗号化保護されていることを確認してください。
+暗号技術 (または暗号化) は情報セキュリティのより高度なトピックのの一つであり、その理解には最も多くの学識と経験が必要です。暗号化には多くのアプローチがあり、それぞれに長所と短所があり、ウェブソリューションアーキテクトと開発者がそれを十分に理解する必要があるため、正しく理解するのは困難です。さらに、本格的な暗号技術の研究は、一般的に高度な数学と数論に基づいており、参入への大きな障壁となっています。
+暗号アルゴリズムの設計や構築は非常にエラーを起こしやすいものです (サイドチャネル攻撃を参照) 。暗号機能をゼロから構築するのではなく、Google Tink プロジェクト、Libsodium、多くのソフトウェアフレームワークやクラウドサービスに組み込まれている安全なストレージ機能など、ピアレビュー済みのオープンなソリューションを使用することを強くお勧めします。
 
 #### パスワードを安全に保存する
 
