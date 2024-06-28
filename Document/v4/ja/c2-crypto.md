@@ -49,8 +49,8 @@ permalink: /v4/ja/c2-crypto
 
 #### パスワードを安全に保存する
 
-Most web applications will face the challenge of storing user’s passwords to set up authentication services. Store the passwords safely to ensure an attacker cannot quickly obtain them.
-Do not store the passwords in plain text anywhere in the database. Always use a hashing function to store passwords. Enhance the hashing function by adding a random salt for each item to increase the randomness of hashes.
+ほとんどのウェブアプリケーションは認証サービスをセットアップするためにユーザーのパスワードを保存するという課題に直面します。パスワードを安全に保存して、攻撃者がパスワードをすぐに入手できないようにします。
+パスワードをデータベースのどこにもプレーンテキストで保存してはいけません。パスワードを保存するには常にハッシュ関数を使用します。各アイテムにランダムソルトを追加してハッシュ関数を強化し、ハッシュのランダム性を高めます。
 
 #### 特殊なケース: アプリケーションシークレット管理
 
