@@ -54,9 +54,9 @@ permalink: /v4/ja/c2-crypto
 
 #### 特殊なケース: アプリケーションシークレット管理
 
-Applications contain numerous “secrets” that are needed for security operations. These include certificates, SQL connection passwords, third party service account credentials, passwords, SSH keys, encryption keys and more. The unauthorized disclosure or modification of these secrets could lead to complete system compromise. In managing application secrets, consider the following:
-Don’t store secrets in code, config files or pass them through environment variables. Use tools like GitRob or TruffleHog to scan code repos for secrets. Your code should be written in a way that even if your code would be disclosed, e.g., due to a defective configured github repository, your running applications are still secure.
-Keep keys and your other application-level secrets in a secrets vault like KeyWhiz or Hashicorp’s Vault project , Amazon KMS, or AWS Secrets Manager to provide secure storage and access to application-level secrets at run-time. Many web-frameworks such as Ruby on Rails provide integrated ways of dealing with secrets and credentials.
+アプリケーションはセキュリティ運用に必要な多数の「シークレット」を持っています。これらには、証明書、SQL 接続パスワード、サードパーティのサービスアカウントクレデンシャル、パスワード、SSH キー、暗号鍵などがあります。これらのシークレットの不正な開示や変更はシステムの完全な侵害につながるかもしれません。アプリケーションシークレットを管理するには、以下を考慮します。
+シークレットをコードや設定ファイルに保存したり、環境変数を介して渡したりしてはいけません。GitRob や TruffleHog などのツールを使用して、コードリポジトリをスキャンしてシークレットを探します。たとえコードが公開されたとしても、たとえば github リポジトリの設定に不備があるとしても、実行中のアプリケーションが依然として安全であるようにコードを記述すべきです。
+キーや他のアプリケーションレベルのシークレットは、安全なストレージを提供する KeyWhiz や Hashicorp の Vault プロジェクト、Amazon KMS、AWS Secrets Manager などのシークレットボールトに保管し、実行時にアプリケーションレベルのシークレットにアクセスできるようにします。Ruby on Rails などの多くのウェブフレームワークではシークレットとクレデンシャルを統合的に扱う方法を提供しています。
 
 #### 鍵のライフサイクル
 
