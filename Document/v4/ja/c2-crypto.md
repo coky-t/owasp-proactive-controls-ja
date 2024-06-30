@@ -90,7 +90,7 @@ permalink: /v4/ja/c2-crypto
 
 ### 暗号技術は時間とともに変化する
 
-Cryptographic recommendations change over time. To allow for this, make cryptographic choices such as used algorithms or key sizes configurable. If the application needs to support high availability, design key-rollover procedures.
+暗号技術の推奨は時間とともに変化します。これを可能にするには、使用するアルゴリズムや鍵サイズなどの暗号の選択を設定可能にします。アプリケーションが高い可用性をサポートする必要がある場合、鍵のロールオーバー手順を設計します。
 
 ## 防止される脆弱性
 
@@ -106,20 +106,20 @@ Cryptographic recommendations change over time. To allow for this, make cryptogr
 - [OWASP Cheat Sheet: Password Storage](https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet)
 - [OWASP Cheat Sheet: IOS Developer - Insecure Data Storage](https://www.owasp.org/index.php/IOS_Developer_Cheat_Sheet#Insecure_Data_Storage_.28M1.29)
 - [OWASP Testing Guide: Testing for TLS](https://www.owasp.org/index.php/Testing_for_Weak_SSL/TLS_Ciphers,_Insufficient_Transport_Layer_Protection_%28OTG-CRYPST-001%29)
-- [OWASP WrongSecrets](https://github.com/OWASP/wrongsecrets) : vulnerable application with example of how to NOT use secrets
+- [OWASP WrongSecrets](https://github.com/OWASP/wrongsecrets) : シークレットを使用しない方法の例を含む脆弱なアプリケーション
 
 ## ツール
 
 - <https://github.com/nabla-c0d3/sslyze>
 - <https://testssl.sh/>
-- [SSLyze](https://github.com/nabla-c0d3/sslyze) - SSL configuration scanning library and CLI tool
-- [SSLLabs](https://www.ssllabs.com/ssltest/) - Free service for scanning and checking TLS/SSL configuration
-- [OWASP O-Saft TLS Tool](https://www.owasp.org/index.php/O-Saft) - TLS connection testing tool
-- [GitRob](https://github.com/michenriksen/gitrob) - Command line tool to find sensitive information in publicly available files on GitHub
-- [TruffleHog](https://github.com/dxa4481/truffleHog) - Searches for secrets accidentally committed
-- [Hashicorp Vault](https://www.vaultproject.io/) - Secrets manager
-- [Amazon KMS](https://aws.amazon.com/kms/) - Manage keys on AWS
-- [AWS Secrets Manager](https://aws.amazon.com/secrets-manager) - Manage secrets on AWS
-- [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault) - Manage keys and secrets on Azure
-- [Google Cloud KMS](https://cloud.google.com/security-key-management) - Manage keys on Google Cloud Platform
-- [Google Secret Manager](https://cloud.google.com/secret-manager) - Manage secrets on Google Cloud Platform
+- [SSLyze](https://github.com/nabla-c0d3/sslyze) - SSL 設定スキャンライブラリと CLI ツール
+- [SSLLabs](https://www.ssllabs.com/ssltest/) - TLS/SSL 設定をスキャンしてチェックするためのフリーサービス
+- [OWASP O-Saft TLS Tool](https://www.owasp.org/index.php/O-Saft) - TLS 接続テストツール
+- [GitRob](https://github.com/michenriksen/gitrob) - GitHub で公開されているファイル内の機密情報を見つけるコマンドラインツール
+- [TruffleHog](https://github.com/dxa4481/truffleHog) - 誤ってコミットしてシークレットを検索します
+- [Hashicorp Vault](https://www.vaultproject.io/) - シークレットマネージャ
+- [Amazon KMS](https://aws.amazon.com/kms/) - AWS 上の鍵を管理します
+- [AWS Secrets Manager](https://aws.amazon.com/secrets-manager) - AWS 上のシークレットを管理します
+- [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault) - Azure 上の鍵とシークレットを管理します
+- [Google Cloud KMS](https://cloud.google.com/security-key-management) - Google Cloud Platform 上の鍵を管理します
+- [Google Secret Manager](https://cloud.google.com/secret-manager) - Google Cloud Platform 上のシークレットを管理します
