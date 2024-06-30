@@ -76,10 +76,10 @@ permalink: /v4/ja/c2-crypto
 
 #### 現行の暗号プロトコルを使用する
 
-When developing web applications, use TLSv1.2 or TLSv1.3, preferably TLSv1.3. If possible, investigate the usage of HTTP/2 or HTTP/3 as they warrant the usage of security TLS versions/algorithms.
-- Directly turn off other older protocols to avoid protocol downgrade attacks.
-- Do not offer HTTP. Disable both HTTP and SSL compression.
-- Always utilize a secure random number generator (RNG).
+ウェブアプリケーションを開発する際には、TLSv1.2 または TLSv1.3 を使用します。できれば TLSv1.3 が望ましい。可能であれば、セキュリティ TLS バージョンやアルゴリズムの使用を保証する HTTP/2 や HTTP/3 の使用を調査してください。
+- 他の古いプロトコルを直接無効にして、プロトコルダウングレード攻撃を防ぎます。
+- HTTP を提供してはいけません。HTTP と SSL 圧縮の両方を無効にします。
+- 常に安全な乱数生成器 (RNG) を使用します。
 
 #### クライアントにトランスポートレベルの暗号化を実施するように指示する
 
