@@ -71,8 +71,8 @@ permalink: /v4/ja/c2-crypto
 
 ### 転送時のデータを保護する
 
-Sensitive data such as passwords, credit card numbers, health records, personal information and business secrets require extra protection, particularly if that data falls under privacy laws (EU’s General Data Protection Regulation GDPR), financial data protection rules such as PCI Data Security Standard (PCI DSS) or other regulations.
-Attackers can steal data from web and web service applications in a number of ways. For example, if sensitive information is sent over the internet without communications security, then an attacker on a shared wireless connection could capture and steal another user’s data. Also, an attacker could use SQL Injection to steal passwords and other credentials from an applications database and expose that information to the public.
+パスワード、クレジットカード番号、医療記録、個人情報、企業秘密などの機密データは、特にそのデータはプライバシー法 (EU の一般データ保護規則 GDPR)、PCI データセキュリティ標準 (PCI DSS) などの金融データ保護規則、その他の規制に該当する場合、特別な保護が必要です。
+攻撃者はさまざまな方法でウェブアプリケーションやウェブサービスアプリケーションからデータを窃取できます。たとえば、機密情報が通信セキュリティなしでインターネット経由で送信されると、共有されたワイヤレス上の攻撃者が他のユーザーのデータを捕捉して窃取するかもしれません。また、攻撃者は SQL インジェクションを使用して、アプリケーションデータベースからパスワードや他のクレデンシャルを窃取し、その情報を一般に公開するかもしれません。
 
 #### 現行の暗号プロトコルを使用する
 
