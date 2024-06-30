@@ -83,10 +83,10 @@ permalink: /v4/ja/c2-crypto
 
 #### クライアントにトランスポートレベルの暗号化を実施するように指示する
 
-Web servers can instruct web browsers to uphold minimal transport-level security:
-- Use the Strict-Transport-Security Header to enforce opportunistic encryption and certificate validation checks.
-- Content-Security-Policy allows for automatic client-side upgrade from HTTP to HTTPS.
-- When setting cookies, always utilize the “secure” flag to prevent transmission over HTTP.
+ウェブサーバーはウェブブラウザに最小限のトランスポートレベルのセキュリティを維持するように指示できます。
+- Strict-Transport-Security ヘッダを使用して、便宜主義的に暗号化と証明書バリデーションチェックを適用します。
+- Content-Security-Policy はクライアントサイドで HTTP から HTTPS に自動アップグレードできます。
+- Cookie を設定する際には、常に "secure" フラグを利用して、HTTP での送信を防ぎます。
 
 ### 暗号技術は時間とともに変化する
 
