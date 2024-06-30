@@ -60,14 +60,14 @@ permalink: /v4/ja/c2-crypto
 
 #### 鍵のライフサイクル
 
-Secret keys are used in applications with a number of sensitive functions. For example, secret keys can be used to sign JWTs, protect credit cards, provide various forms of authentication as well as facilitate other sensitive security features. In managing keys, a number of rules should be followed including
+秘密鍵は多くの機密性の高い機能を備えたアプリケーションで使用します。たとえば、秘密鍵は、JWT を署名したり、クレジットカードを保護したり、さまざまな形式の認証を提供したり、その他の機密性の高いセキュリティ機能を促進するために使用できます。鍵を管理するには、以下のようにいくつかのルールに従うべきです。
 
-- Ensure that any secret key is protected from unauthorized access
-- All authorized access to a secret key is logged for forensic purposes
-- Store keys in a proper secrets vault as described below
-- Use independent keys when multiple keys are required
-- Build support for changing cryptographic algorithms to prepare for future needed changes
-- Build application features to support and handle key rotation gracefully. This can happen on a periodic base or after a key has been compromised.
+- すべての秘密鍵が認可されていないアクセスから保護されていることを確保します
+- 秘密鍵へのすべての認可されていないアクセスはフォレンジック目的のためにログ記録します
+- 下記のように適切なシークレットボールトに鍵を保管します
+- 複数の鍵が必要な場合は独立した鍵を使用します
+- 暗号アルゴリズムの変更に対するサポートを構築して、将来必要とされる変更に備えます
+- 鍵のローテーションを適切にサポートおよび処理するアプリケーション機能を構築します。これは定期的に、あるいは鍵が侵害された後に実行できます。
 
 ### 転送時のデータを保護する
 
