@@ -12,13 +12,13 @@ permalink: /v4/ja/c3-validate-all-input
 
 ## 説明
 
-Input validation is a programming technique that ensures only properly formatted data may enter a software system component. When the injection attack targets a client (for example JavaScript based attacks), web servers can perform quoting/encoding on the attacker-provided data before forwarding it to the client. 
+入力バリデーションは、適切にフォーマットされたデータのみがソフトウェアシステムコンポーネントに入ることを確保するプログラミング技法です。インジェクション攻撃がクライアントをターゲットにしている場合 (たとえば JavaScript ベースの攻撃など)、ウェブサーバーは攻撃者が提供したデータをクライアントに転送する前にクォーティングやエンコーディングを実行できます。
 
-Injection attacks commonly occur if an application confuses data input as executable commands and are often possible where input validation is forgotten or implemented wrong. For example, imagine that a web application accepts an email address as input from a user. The email address would be the expected “data”. Attackers now search for ways to confuse applications to execute this (supposed) data as commands. Different injection attacks target different areas:
+インジェクション攻撃は、アプリケーションがデータ入力を実行可能なコマンドと混同して入力バリデーションを忘れたり間違って実装した場合に発生します。たとえば、ウェブアプリケーションがユーザーからの入力として電子メールアドレスを受け付けるとします。電子メールアドレスは期待される「データ」でしょう。そのとき攻撃者はアプリケーションが間違えてこの (想定した) データをコマンドとして実行する方法を探しています。インジェクション攻撃はそれぞれ異なる領域をターゲットとします。
 
-- When an attacker tricks an application into interpreting user input (data) as SQL commands (or parts thereof), there is a SQL injection attack. The injected command executes within the database server.
-- Remote command injection (RCE) happens if an application confuses user data with commands that execute on the web application server/host. Server-Side Template Injections are another example of injections executed within the application server.
-- When Javascript-Injections happen, a web application has accepted user data but is coerced to execute that data as code. Injected javascript code is typically executed within another user’s web browser, thus not directly attacking the web server but other users.
+- 攻撃者がアプリケーションを騙してユーザー入力 (データ) を SQL コマンド (またはその一部) として解釈させると、SQL インジェクション攻撃となります。注入されたコマンドはデータベースサーバー内で実行します。
+- リモートコマンドインジェクション (RCE) は、アプリケーションがユーザーデータとウェブアプリケーションサーバーやホストで実行するコマンドを混同した場合に発生します。サーバーサイドテンプレートインジェクションはアプリケーションサーバー内で実行されるインジェクションのもう一つの例です。
+- Javascript インジェクションが発生すると、ウェブアプリケーションはユーザーデータを受け入れますが、そのデータをコードとして実行するように強制されます。注入された javascript コードは一般的に他のユーザーのウェブブラウザ内で実行されるため、ウェブサーバーを直接攻撃するのではなく他のユーザーを攻撃します。
 
 ### Syntactic and Semantic Validity
 
@@ -118,7 +118,7 @@ If that is not possible then consider a series of validation defenses when proce
 - Restrict or monitor incoming and outgoing network connectivity from containers or servers that deserialize.
 - Monitor deserialization, alerting if a user deserializes constantly.
 
-## 脆弱性の防止
+## 防止される脆弱性
 
 - Input validation reduces the attack surface of applications and can sometimes make attacks more difficult against an application.
 - Input validation is a technique that provides security to certain forms of data, specific to certain attacks and cannot be reliably applied as a general security rule.
