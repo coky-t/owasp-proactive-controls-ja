@@ -7,7 +7,7 @@ order: 412
 
 ---
 
-# C8: ブラウザがユーザーを守るのを支援する (Help the Browser defend its User)
+# C8: ブラウザのセキュリティ機能を活用する (Leverage Browser Security Features)
 
 ## 説明
 

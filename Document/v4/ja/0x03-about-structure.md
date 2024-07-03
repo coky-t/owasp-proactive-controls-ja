@@ -14,11 +14,11 @@ order: 403
 * C1: アクセス制御を実装する (Implement Access Control)
 * C2: 暗号を正しい方法で使用する (Use Cryptography the right way)
 * C3: 信頼できないデータを検証、エスケープ、サニタイズ、パラメータ化する (Validate, Escape, Sanitize or Parameterize Untrusted Data)
-* C4: セキュアアーキテクチャパターンを使用する (Use Secure Architecture Patterns)
+* C4: 最初からセキュリティに対処する (Address Security from the Start)
 * C5: デフォルト設定を安全にする (Secure By Default Configurations)
 * C6: コンポーネントを評価して更新する (Assess and Update your Components)
 * C7: デジタル ID を実装する (Implement Digital Identity)
-* C8: ブラウザがユーザーを守るのを支援する (Help the Browser defend its User)
+* C8: ブラウザのセキュリティ機能を活用する (Leverage Browser Security Features)
 * C9: セキュリティログ記録とモニタリングを実装する (Implement Security Logging and Monitoring)
 * C10: サーバーサイドリクエストフォージェリを阻止する (Stop Server Side Request Forgery)
 
