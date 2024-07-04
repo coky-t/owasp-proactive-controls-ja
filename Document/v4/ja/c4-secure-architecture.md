@@ -41,13 +41,13 @@ Architecture should focus upon simplicity: the designed software should be only 
 - Long-term maintenance is aided through the simpler design.
 - The design should focus upon transprency, i.e., the security should not depend upon security-by-obscurity.
 
-### Make it easy to do the right thing
+### 正しいことを簡単にできるようにする
 
-Two terms often heard are "security by design" and "security by default". The former implies, that the software system should be usable in a secure manner while the latter means that the initial configuration of the software system is secure.
+よく耳にする言葉に「Security By Design」と「Security By Default」があります。前者はソフトウェアシステムが安全に使用できるべきであることを意味し、後者はソフトウェアシステムの初期設定が安全であることを意味します。
 
-This implies, that an system administrator has to make an explicit choice to introduce insecure configuration into the system. In constrast, the path of least resistance should always result in a secure system.
+つまり、システムに安全でない設定を導入するには、システム管理者が明示的に選択する必要があることを意味します。対照的に、最も抵抗の少ない道は常に安全なシステムをもたらすはずです。
 
-When focusing upon end-user interactions, this aspect is important for designing user interfaces and flows. When focusing upon developer interactions, develeper-facing facilities such as framework, APIs, network APIs should be designed that when using them with default values, only secure operations should occur. Think about this when designing your configuration files too
+エンドユーザーのインタラクションに焦点を当てる場合、この側面はユーザーインタフェースとフローを設計する上で重要です。開発者のインタラクションに焦点を当てる場合、フレームワーク、API、ネットワーク API などの開発者向けの機能は、デフォルト値で使用するときに安全な操作のみが行われるように設計すべきです。設定ファイルを設計するときにもこの点を考慮してください。
 
 ### 何をするために何が信頼されているかを明確にし、それらの関係が確実に実行されるように確保する
 
