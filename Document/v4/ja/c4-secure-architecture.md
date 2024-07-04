@@ -49,11 +49,11 @@ This implies, that an system administrator has to make an explicit choice to int
 
 When focusing upon end-user interactions, this aspect is important for designing user interfaces and flows. When focusing upon developer interactions, develeper-facing facilities such as framework, APIs, network APIs should be designed that when using them with default values, only secure operations should occur. Think about this when designing your configuration files too
 
-### Clearly articulate what's trusted to do what, and ensure those relationships are enforced 
+### 何をするために何が信頼されているかを明確にし、それらの関係が確実に実行されるように確保する
 
-Clearly articulate what's trusted to do what, and ensure those relationships are enforced, e.g., trust boundaries deliniate blast radius and are enforced by controls, such as firewalls or gateways.
+何をするために何が信頼されているかを明確にし、それらの関係が確実に実行されるように確保します。たとえば、信頼境界は影響範囲を定義し、ファイアウォールやゲートウェイなどのコントロールによって実行されます。
 
-Attenuate what's allowed by careful validation at each step. Go deeper with threat modeling mnemonics like stride or methodologies like stride per element.
+各ステップでの慎重なバリデーションによって、許可されるものを減らします。STRIDE などの脅威モデリングのニーモニックや、要素ごとの STRIDE などの方法論でより深く掘り下げます。
 
 ### 公開されているコンポーネント (「攻撃対象領域」) を特定して最小化する
 
