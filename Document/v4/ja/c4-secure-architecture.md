@@ -24,10 +24,10 @@ permalink: /v4/ja/c4-secure-architecture
 
 ## 脅威
 
-- If the application is only protected by security-by-obscurity, an attacker that reverse-engineers the application has full permissions as soon the obfuscation is cleared-up. In addtion, an attacker is able to monitor network traffic: while the obfuscation might be performed on the code-level, the operations on the network level can easily be analyzed.
-- A web-application with a complex authorization scheme is deployed. A new software developer is tasked with extending one of the components. Due to the complexity, they misconfigure the authorization scheme and an attacker is able to exploit IDOR.
-- A web-application with a complex authorization scheme is deployed. A new software developer adds a new plugin to the system. The system makes it hard to do the right thing, and all security configuration must be manually added to the plugin, by-default no security measures are taken. The new developer is not configuring anything thus the new plugin introduces an IDOR into the system.
-- A web-application has many components, all of which are exposed to the public internet. The resulting attack surface is massive. For example, a database management tool (e.g., phpmyadmin) is deployed. After a 0day was found in mysqladmin, the whole database was extracted. During normal use, nobody uses phpmyadmin.
+- アプリケーションが隠蔽によるセキュリティ (security-by-obscurity) でのみ保護されている場合、アプリケーションをリバースエンジニアする攻撃者は難読化が解除されるや否や完全なパーミッションを有します。さらに、攻撃者はネットワークトラフィックを監視できます。難読化はコードレベルで実行されるかもしれませんが、ネットワークレベルのオペレーションは簡単に解析できます。
+- 複雑な認可スキームを持つウェブアプリケーションがデプロイされます。新しいソフトウェア開発者はコンポーネントの一つを拡張する仕事を任されます。その複雑さゆえに、認可スキームを設定ミスし、攻撃者は IDOR を悪用できます。
+- 複雑な認可スキームを持つウェブアプリケーションがデプロイされます。新しいソフトウェア開発者はそのシステムに新しいプラグインを追加します。システムは正しいことをするのが難しく、すべてのセキュリティ設定を手作業でプラグインに追加しなければならず、デフォルトではセキュリティ対策は講じられません。新しい開発者は何も設定していないため、新しいプラグインはシステムに IDOR を導きます。
+- あるウェブアプリケーションは多くのコンポーネントがあり、すべてパブリックインターネットに公開されています。その結果、攻撃対象領域は膨大になります。たとえば、データベース管理ツール (phpmyadmin など) がデプロイされています。mysqladmin にゼロデイが見つかった後、データベース全体が抽出されました。通常の使用では、phpmyadmin を使用する人はいません。
 
 ## 実装
 
