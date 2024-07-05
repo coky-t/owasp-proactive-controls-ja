@@ -12,15 +12,15 @@ permalink: /v4/ja/c4-secure-architecture
 
 ## 説明
 
-When designing a new application, creating a secure architecture prevents vulnerabilties before they even become part of the application. This prevents costly repairs and repudiation problems.
+新しいアプリケーションを設計する際、安全なアーキテクチャを作成することで、脆弱性がアプリケーションの一部になる前に防止できます。これによりコストのかかる修復や否認の問題を防ぎます。
 
-There are design principles that lead to secure architectures:
+安全なアーキテクチャにつながる設計原則は以下のとおりです。
 
-- **keep it simple, stupid** (KISS): the easier an application is to understand, the easier it is to reason about its components and their interactions. This allows to reason about the application's security behavior.
-- **Make it easy to do the right thing**: don't expect the user to read documentation or invest time to "do things the right way". By default the application should behave in a secure manner. To make it insecure, an explicit action by the user has to take place.
-- **don't rely on obscurity**: if the only security is due to the intransparency of the application or its source code, the application is not secure at all.
-- **Identify and minimize your exposed components** ("attack surface"): attackers cannot attack what's not there.
-- **Design for Defense-in-Depth**: think about what happens, if a component is breached and about the potential blast radius of an attack.
+- **簡潔にしておく** (KISS): アプリケーションが理解しやすいほど、そのコンポーネントとそれらのインタラクションについて判断しやすくなります。これによりアプリケーションのセキュリティ動作について判断できます。
+- **正しいことを簡単にできるようにする**: ユーザーがドキュメントを読んだり、「正しいやり方」に時間を費やすことを期待してはいけません。デフォルトでアプリケーションが安全な振る舞いをすべきです。安全でないようにするには、ユーザーが明示的なアクションを実行する必要があります。
+- **隠蔽に依存しない**: セキュリティがアプリケーションやそのソースコードの不透明性だけであるならば、そのアプリケーションはまったく安全ではありません。
+- **公開されているコンポーネント (「攻撃対象領域」) を特定して最小化する**: 攻撃者はそこにないものをすることはできません。
+- **多層防御を設計する**: コンポーネントが侵害された場合に何が起こるのか、および攻撃の潜在的な影響範囲について考えます。
 
 ## 脅威
 
