@@ -31,15 +31,15 @@ There are design principles that lead to secure architectures:
 
 ## 実装
 
-The mantra "Complexity is the enemy of enemy of security" can be seen throughout this implementation guidance.
+「複雑さはセキュリティの敵である」という格言は、この実装ガイダンスの随所に見られます。
 
-### Design for Clarity and Transparency
+### 明確かつ明瞭に設計する
 
-Architecture should focus upon simplicity: the designed software should be only as complex as the intended user's requirements warant. Focusing upon simplicity brings multiple benefits for the created software:
+アーキテクチャはシンプルであることに重点を置くべきです。設計したソフトウェアは意図したユーザーの要件が許す範囲内でのみ複雑にすべきです。シンプルであることに重点を置くと、作成されるソフトウェアにいくつもの利点をもたらします。
 
-- It is easier to reason about a simple system. This allows to reason about potential security impacts of changes.
-- Long-term maintenance is aided through the simpler design.
-- The design should focus upon transprency, i.e., the security should not depend upon security-by-obscurity.
+- シンプルなシステムについて判断が容易になります。これにより変更に伴う潜在的なセキュリティの影響を判断できます。
+- よりシンプルな設計により、長期的なメンテナンスが容易になります。
+- 設計は透明性に重点を置くべきです。つまり、セキュリティは隠蔽によるセキュリティ (security-by-obscurity) に依存してはいけません。
 
 ### 正しいことを簡単にできるようにする
 
