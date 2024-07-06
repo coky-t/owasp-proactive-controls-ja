@@ -30,7 +30,7 @@ permalink: /v4/ja/c3-validate-all-input
 
 ## 実装
 
-Protection against Injection Attacks is typically based upon a defense-in-depth approach and incorporates input filtering, output escaping, and utilization of hardening mechanisms. The former two are only dependent upon implemented security measures, and the latter is mostly dependent upon client-support, e.g., when protecting against XSS, filtering XSS from input and escaping output data server-side would prevent XSS regardless of the used web browser; adding a Content-Security-Policy prevents XSS, but only if the user’s browser supports it. Due to this, security must never depend upon optional hardening measures alone.
+インジェクション攻撃に対する保護は、一般的に多層防御アプローチに基づき、入力フィルタリング、出力エスケープ、堅牢化メカニズムの利用を組み込んでいます。前者二つは実装されるセキュリティ対策にのみ依存し、後者は主にクライアントサポートに依存します。たとえば、XSS に対する保護では、入力から XSS をフィルタリングし、出力データをサーバーサイドでエスケープすることで、使用するウェブブラウザに関係なく XSS を防ぎます。Content-Security-Policy を追加することで XSS を防ぎますが、ユーザーのブラウザがサポートしている場合に限ります。このため、セキュリティはオプションの堅牢化対策だけに依存してはいけません。
 
 ### Prevent malicious data from entering the system
 
