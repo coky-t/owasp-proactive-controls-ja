@@ -36,12 +36,12 @@ permalink: /v4/ja/c3-validate-all-input
 
 提供されたデータを信用してはいけません。すべてのデータに悪意のあるパターンがないかスクリーニングするか、さらに良い方法として、すべてのデータを許可リストと照合します。
 
-#### Allowlisting vs Denylisting
-There are two general approaches to performing syntactic validation, commonly known as allow and deny lists:
+#### 許可リストと拒否リスト
+構文バリデーションを実行するには、一般に許可リストと拒否リストとして知られている、二つの一般的なアプローチがあります。
 
-- Denylisting or **denylist validation** attempts to check that given data does not contain “known bad” content. For example, a web application may block input containing the exact text &lt;SCRIPT&gt; to help prevent XSS. However, this defense could be evaded with a lowercase script tag or a script tag of mixed case.
-- Allowlisting or **allowlist validation** attempts to check that a given data matches a set of “known good” rules. For example, a allowlist validation rule for a US state would be a 2-letter code that is only one of the valid US states.
-Allowlisting is the recommended minimal approach. Denylisting is prone to error, can be bypassed with various evasion techniques, and can be dangerous when dependent on itself. Even though denylisting is often evaded, it can be useful to help detect obvious attacks. So while allowlisting helps limit the attack surface by ensuring data is of the right syntactic and semantic validity, denylisting helps detect and potentially stop obvious attacks.
+- 拒否リスト処理または **拒否リストバリデーション** は、与えられたデータが「既知の不正」コンテンツを含まないことをチェック試行します。たとえば、ウェブアプリケーションは XSS を防ぐために &lt;SCRIPT&gt; というテキストを含む入力をブロックするかもしれません。しかし、この防御は小文字の script タグや大文字小文字が混在する script タグで回避されるかもしれません。
+- 許可リスト処理または **許可リストバリデーション** は、与えられたデータが一連の「既知の正しい」ルールにマッチするかどうかをチェック試行します。たとえば、米国の州の許可リストバリデーションルールは、有効な米国の州のうち一つだけである 2 文字のコードになるでしょう。
+許可リスト処理は推奨される最小限のアプローチです。拒否リスト処理はエラーになりやすく、さまざまな回避技法でバイパスされる可能性があり、それ自体に依存する場合には危険です。拒否リスト処理は回避されることがよくありますが、明らかな攻撃を検出するのに役立つことがあります。つまり、許可リスト処理はデータが正しい構文的妥当性と意味的妥当性を持つことを確保することで攻撃対象領域を制限するのに役立つ一方で、拒否リスト処理は明らかな攻撃を検出して、潜在的に阻止するのに役立ちます。
 
 #### Client side and Server side Validation
 
