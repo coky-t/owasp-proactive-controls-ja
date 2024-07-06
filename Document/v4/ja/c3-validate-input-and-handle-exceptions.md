@@ -32,9 +32,9 @@ permalink: /v4/ja/c3-validate-all-input
 
 インジェクション攻撃に対する保護は、一般的に多層防御アプローチに基づき、入力フィルタリング、出力エスケープ、堅牢化メカニズムの利用を組み込んでいます。前者二つは実装されるセキュリティ対策にのみ依存し、後者は主にクライアントサポートに依存します。たとえば、XSS に対する保護では、入力から XSS をフィルタリングし、出力データをサーバーサイドでエスケープすることで、使用するウェブブラウザに関係なく XSS を防ぎます。Content-Security-Policy を追加することで XSS を防ぎますが、ユーザーのブラウザがサポートしている場合に限ります。このため、セキュリティはオプションの堅牢化対策だけに依存してはいけません。
 
-### Prevent malicious data from entering the system
+### 悪意のあるデータがシステムに侵入するのを防ぐ
 
-Never trust provided data! Screen all data for malicious patterns or, even better, check all data against an allow list.
+提供されたデータを信用してはいけません。すべてのデータに悪意のあるパターンがないかスクリーニングするか、さらに良い方法として、すべてのデータを許可リストと照合します。
 
 #### Allowlisting vs Denylisting
 There are two general approaches to performing syntactic validation, commonly known as allow and deny lists:
