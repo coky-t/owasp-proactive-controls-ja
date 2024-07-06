@@ -20,13 +20,13 @@ permalink: /v4/ja/c3-validate-all-input
 - リモートコマンドインジェクション (RCE) は、アプリケーションがユーザーデータとウェブアプリケーションサーバーやホストで実行するコマンドを混同した場合に発生します。サーバーサイドテンプレートインジェクションはアプリケーションサーバー内で実行されるインジェクションのもう一つの例です。
 - Javascript インジェクションが発生すると、ウェブアプリケーションはユーザーデータを受け入れますが、そのデータをコードとして実行するように強制されます。注入された javascript コードは一般的に他のユーザーのウェブブラウザ内で実行されるため、ウェブサーバーを直接攻撃するのではなく他のユーザーを攻撃します。
 
-### Syntactic and Semantic Validity
+### 構文的妥当性と意味的妥当性
 
-An application should check that data is **syntactically** and **semantically** valid (in that order) before using it in any way (including displaying it back to the user).
+アプリケーションは何らかの方法でデータを使用する (ユーザーに表示することを含む) 前に、データが **構文的** かつ **意味的** に (この順序で) 妥当であることをチェックすべきです。
 
-- **Syntactic validity** means that the data is in the expected form. For example, an application may allow users to select a four-digit “account ID” to perform some operation. The application should assume the user is entering a SQL injection payload and check that the data entered by the user is precisely four digits in length and consists only of numbers (in addition to utilizing proper query parameterization).
+- **構文的妥当性** はデータが期待どおりの形式であることを意味します。たとえば、アプリケーションはユーザーが何らかの操作を行うために四桁の「アカウント ID」を選択できるかもしれません。アプリケーションは、ユーザーが SQL インジェクションペイロードを入力していると仮定し、(適切なクエリパラメータ化を利用することに加えて) ユーザーが入力したデータの長さが正確に四桁であり、数字だけで構成されていることをチェックすべきです。
 
- - **Semantic validity** includes only accepting input within an acceptable range for application functionality and context. For example, a start date must be before an end date when choosing date ranges.
+- **意味的妥当性** はアプリケーションの機能とコンテキストの許容範囲内でのみ入力を受け付けることを含みます。たとえば、日付範囲を選択する場合、開始日は終了日より前でなければなりません。
 
 ## 実装
 
