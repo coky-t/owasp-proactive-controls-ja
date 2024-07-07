@@ -66,18 +66,18 @@ permalink: /v4/ja/c3-validate-all-input
 
 正規表現はバリデーションを実行する方法の一つにすぎません。正規表現は開発者によっては保守や理解が難しいことがあります。他のバリデーション方法としてプログラムでバリデーションメソッドを記述するものがあり、開発者によっては保守が簡単になるかもしれません。
 
-#### Unexpected User Input (Mass Assignment)
+#### 予期せぬユーザー入力 (マスアサインメント)
 
-Some frameworks support automatic binding of HTTP requests parameters to server-side objects used by the application. This auto-binding feature can allow an attacker to update server-side objects that were not meant to be modified. The attacker can possibly modify their access control level or circumvent the intended business logic of the application with this feature.
-This attack has a number of names including: mass assignment, autobinding and object injection.
-As a simple example, if the user object has a field privilege which specifies the user’s privilege level in the application, a malicious user can look for pages where user data is modified and add privilege=admin to the HTTP parameters sent. If auto-binding is enabled in an insecure fashion, the server-side object representing the user will be modified accordingly.
+フレームワークの中には HTTP リクエストパラメータをアプリケーションで使用されるサーバーサイドオブジェクトに自動バインディングすることをサポートしているものがあります。この自動バインディング機能によって、変更されることを意図していないサーバーサイドオブジェクトを攻撃者が更新できる可能性があります。攻撃者はこの機能によってアクセス制御レベルを変更したり、アプリケーションの意図したビジネスロジックを回避できる可能性があります。
+この攻撃には、マスアサインメント、自動バインディング、オブジェクトインジェクションなど、さまざまな名前があります。
+簡単な例として、ユーザーオブジェクトにアプリケーションにおけるユーザーの権限レベルを指定する privilege フィールドがある場合、悪意のあるユーザーはユーザーデータが変更されるページを探し、送信される HTTP パラメータに privilege=admin を追加できます。自動バインディングが安全でない方法で有効になっている場合、ユーザーを表すサーバーサイドオブジェクトがそれに応じて変更されます。
 
-Two approaches can be used to handle this:
+これを対処するには、以下の二つのアプローチがあります。
 
-- Avoid binding input directly and use Data Transfer Objects (DTOs) instead.
-- Enable auto-binding but set up allowlist rules for each page or feature to define which fields are allowed to be auto-bound.
+- 入力を直接バインドすることは避け、代わりにデータ転送オブジェクト (DTO) を使用します。
+- 自動バインディングを有効にしますが、各ページまたは機能の許可リストルールを設定して、どのフィールドが自動バインドできるかを定義します。
 
-More examples are available in the [OWASP Mass Assignment Cheat Sheet](https://www.owasp.org/index.php/Mass_Assignment_Cheat_Sheet)
+より多くの例が [OWASP Mass Assignment Cheat Sheet](https://www.owasp.org/index.php/Mass_Assignment_Cheat_Sheet) にあります。
 
 ### Limits of Input Validation
 
