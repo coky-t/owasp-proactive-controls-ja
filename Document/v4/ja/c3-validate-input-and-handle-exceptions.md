@@ -92,12 +92,12 @@ permalink: /v4/ja/c3-validate-all-input
 - サーバーサイドテンプレートインジェクション (SSTI) はサーバーサイドのテンプレートエンジンを使用して、ユーザーに表示されるコンテンツを動的に生成します。SSTI エンジンでは多くの場合、サンドボックスのコンフィギュレーション、つまり限られた数のメソッドの実行のみを許可します。
 - ユーザー入力をパラメータとしてシステムコマンドを実行すると、インジェクション攻撃を受けやすくなります。可能であれば、これを避けるべきです。
 
-#### JavaScript Injection Attacks
+#### JavaScript インジェクション攻撃
 
-A special case are JavaScript based Injection attacks (XSS). The injected malicious code is commonly executed within a victim’s browser. Typically, attackers try to steal the user’s session information from the browser and not directly execute commands (as they do on the server-side). In addition to server-side input filtering and output escaping, multiple client-side hardening measurements can be taken (these also protect against the special case of DOM-based XSS where no server-side logic is involved and thus cannot filter malicious code):
-- Mark sensitive cookies with httpOnly so JavaScript cannot access them
-- Utilize a Content-Security-Policy to reduce the attack-surface for JavaScript-based Attacks
-- Use a secure by default framework like Angular
+特殊なケースとして JavaScript ベースのインジェクション攻撃 (XSS) があります。注入された悪意のあるコードは一般的に被害者のブラウザ内で実行されます。通常、攻撃者はブラウザからユーザーのセッション情報を盗もうとしますが、(サーバーサイドで行うような) コマンドを直接実行しようとはしません。サーバーサイドの入力フィルタリングと出力エスケープに加えて、複数のクライアントサイド堅牢化対策を講じることができます (これらは、サーバーサイドのロジックが関与せず、悪意のあるコードをフィルタリングできない DOM ベースの XSS の特殊なケースからも保護します)。
+- 機密性の高い Cookie を httpOnly でマークして、JavaScript がアクセスできないようにします
+- Content-Security-Policy を利用して、JavaScript ベースの攻撃の攻撃対象領域を減らします
+- Angular のようなデフォルトで安全なフレームワークを使用します
 
 #### Validating and Sanitizing HTML
 
