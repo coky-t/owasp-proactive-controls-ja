@@ -120,9 +120,9 @@ permalink: /v4/ja/c3-validate-all-input
 
 ## 防止される脆弱性
 
-- Input validation reduces the attack surface of applications and can sometimes make attacks more difficult against an application.
-- Input validation is a technique that provides security to certain forms of data, specific to certain attacks and cannot be reliably applied as a general security rule.
-- Input validation should not be used as the primary method of preventing [XSS](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet), [SQL Injection](https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet) and other attacks.
+- 入力バリデーションはアプリケーションの攻撃対象領域を減らし、時にはアプリケーションに対する攻撃をより困難にすることがあります。
+- 入力バリデーションは特定の攻撃に固有の特定の形式のデータにセキュリティを提供する技法であり、一般的なセキュリティルールとして確実に適用することはできません。
+- 入力バリデーションは [XSS](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet)、[SQL インジェクション](https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet) などの攻撃を防ぐ主な方法として使用すべきではありません。
 - [2023 CWE Top 25 - 3 Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')](https://cwe.mitre.org/data/definitions/89.html)
 - [2023 CWE Top 25 - 5 Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')](https://cwe.mitre.org/data/definitions/89.html)
 - [2023 CWE Top 25 - 16 Improper Neutralization of Special Elements used in a Command ('Command Injection')](https://cwe.mitre.org/data/definitions/77.html)
@@ -130,24 +130,24 @@ permalink: /v4/ja/c3-validate-all-input
 
 ## 参考情報
 
-Regarding Input Validation:
+入力バリデーションについて:
 - [OWASP Cheat Sheet: Input Validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 - [OWASP Cheat Sheet: iOS - Security Decisions via Untrusted Inputs](https://www.owasp.org/index.php/IOS_Developer_Cheat_Sheet#Security_Decisions_via_Untrusted_Inputs_.28M7.29)
 - [OWASP Testing Guide: Testing for Input Validation](https://www.owasp.org/index.php/Testing_for_Input_Validation)
 - [Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html)
 - [Injection Prevention Cheat Sheet in Java](https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_in_Java_Cheat_Sheet.html)
-- Hardening with CSP: [CSP with Google](https://csp.withgoogle.com/docs/index.html)
+- CSP による堅牢化: [CSP with Google](https://csp.withgoogle.com/docs/index.html)
 - Deploying CSP in Single Page Applications
 
 ## ツール
 
-Helping with Input Validation:
+入力バリデーションの支援:
 - [OWASP Java HTML Sanitizer Project](https://www.owasp.org/index.php/OWASP_Java_HTML_Sanitizer)
 - [Java JSR-303/JSR-349 Bean Validation](http://beanvalidation.org/)
 - [Java Hibernate Validator](http://hibernate.org/validator/)[Apache Commons Validator](https://commons.apache.org/proper/commons-validator/)PHP’s [filter functions](https://secure.php.net/manual/en/book.filter.php)
 
-Testing for Injection Attacks:
+インジェクション攻撃のテスト:
 - Sqlmap.py
 - OWASP ZAP-based scans
-Helping with Hardening:
+堅牢化の支援:
 - [CSP Evaluator](https://csp-evaluator.withgoogle.com/)
