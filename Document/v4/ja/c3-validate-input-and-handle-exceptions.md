@@ -43,9 +43,9 @@ permalink: /v4/ja/c3-validate-all-input
 - 許可リスト処理または **許可リストバリデーション** は、与えられたデータが一連の「既知の正しい」ルールにマッチするかどうかをチェック試行します。たとえば、米国の州の許可リストバリデーションルールは、有効な米国の州のうち一つだけである 2 文字のコードになるでしょう。
 許可リスト処理は推奨される最小限のアプローチです。拒否リスト処理はエラーになりやすく、さまざまな回避技法でバイパスされる可能性があり、それ自体に依存する場合には危険です。拒否リスト処理は回避されることがよくありますが、明らかな攻撃を検出するのに役立つことがあります。つまり、許可リスト処理はデータが正しい構文的妥当性と意味的妥当性を持つことを確保することで攻撃対象領域を制限するのに役立つ一方で、拒否リスト処理は明らかな攻撃を検出して、潜在的に阻止するのに役立ちます。
 
-#### Client side and Server side Validation
+#### クライアントサイドバリデーションとサーバーサイドバリデーション
 
-Always perform Input validation on the server side for security. While client-side validation is useful for both functional and security purposes, it is easily bypassed. Therefore, client-side validation is performed for usability purposes, but the application’s security must not depend upon it. For example, JavaScript validation may alert the user that a particular field must consist of numbers. Still, the server-side application must validate that the submitted data only consists of numbers in the appropriate numerical range for that feature. Another benefit of using both client AND server-side validation is that any server-side validation warnings can be logged to inform operations of a potential hacker as the client-side validation had been bypassed.
+セキュリティのために入力バリデーションは常にサーバーサイドで実行します。クライアントサイドバリデーションは機能面でもセキュリティ面でも役立ちますが、簡単にバイパスされます。したがって、クライアントサイドバリデーションはユーザビリティのために行われますが、アプリケーションのセキュリティはそれに依存してはいけません。たとえば、JavaScript バリデーションは特定のフィールドが数字で構成されなければならないことをユーザーに警告するかもしれません。それでも、サーバーサイドアプリケーションは送信されたデータがその機能に適した数値範囲の数字のみで構成していることを確認しなければなりません。クライアントサイドとサーバーサイドの両方のバリデーションを使用するもう一つの利点は、サーバーサイドバリデーションの警告がログ記録され、クライアントサイドバリデーションがバイパスした、潜在的なハッカーの操作を通知できることです。
 
 #### Regular Expressions
 
