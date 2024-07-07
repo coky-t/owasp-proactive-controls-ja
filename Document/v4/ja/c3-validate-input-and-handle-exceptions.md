@@ -106,17 +106,17 @@ permalink: /v4/ja/c3-validate-all-input
 - HTML をエンコードまたはエスケープしても、HTML が正しくレンダリングされなくなるため役に立ちません。
 
 したがって、HTML 形式のテキストを解析してクリーンにするライブラリが必要です。HTML サニタイゼーションの詳細については [XSS Prevention Cheat Sheet on HTML Sanitization](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet#RULE_.236_-_Sanitize_HTML_Markup_with_a_Library_Designed_for_the_Job) を参照してください。
-### Special Case: Validate Data During Deserialization
-Some forms of input are so complex that validation can only minimally protect the application. For example, it’s dangerous to deserialize untrusted data or data that can be manipulated by an attacker. The only safe architectural pattern is to not accept serialized objects from untrusted sources or to only deserialize in limited capacity for only simple data types. You should avoid processing serialized data formats and use easier to defend formats such as JSON when possible.
+### 特殊なケース: デシリアライゼーション時のデータを妥当性確認する
+入力形式によっては、非常に複雑であるため、バリデーションではアプリケーションを最低限しか保護できません。たとえば、信頼できないデータや攻撃者が操作できるデータをデシリアライズするのは危険です。唯一の安全なアーキテクチャパターンは、信頼できないソースからシリアライズされたオブジェクトを受け入れないか、単純なデータ型のみに対して限られた容量でデシリアライズすることです。可能であれば、シリアライズされたデータ形式の処理は避け、JSON などの防御しやすい形式を使用すべきです。
 
-If that is not possible then consider a series of validation defenses when processing serialized data.
+それが不可能であれば、シリアライズされたデータを処理する際に一覧のバリデーション防御を検討してください。
 
-- Implement integrity checks and encryption of the serialized objects to prevent hostile object creation or data tampering.
-- Enforce strict type constraints during deserialization before object creation; typically code is expecting a definable set of classes. Bypasses to this technique have been demonstrated.
-- Isolate code that deserializes, such that it runs in very low privilege environments, such as temporary containers.
-- Log security deserialization exceptions and failures, such as where the incoming type is not the expected type, or the deserialization throws exceptions.
-- Restrict or monitor incoming and outgoing network connectivity from containers or servers that deserialize.
-- Monitor deserialization, alerting if a user deserializes constantly.
+- シリアライズされたオブジェクトの完全性チェックと暗号化を実装して、敵対的なオブジェクトの作成やデータ改竄を防ぎます。
+- オブジェクト作成前のデシリアライゼーション時に厳密な型制約を適用します。一般的にコードは定義可能なクラスのセットを期待しています。この技法のバイパスが実証されています。
+- デシリアライズするコードを分離して、一時コンテナなど、非常に低い権限の環境で実行するようにします。
+- 受信タイプが予期したタイプではない場合や、デシリアライゼーションで例外がスローされる場合など、セキュリティデシリアライゼーション例外と失敗をログ記録します。
+- デシリアライズするコンテナやサーバーからのネットワーク接続の送受信を制限または監視します。
+- デシリアライゼーションを監視し、ユーザーがデシリアライズし続けた場合に警告します。
 
 ## 防止される脆弱性
 
