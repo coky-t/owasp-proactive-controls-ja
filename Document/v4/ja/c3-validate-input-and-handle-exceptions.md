@@ -83,14 +83,14 @@ permalink: /v4/ja/c3-validate-all-input
 
 複雑な入力フォームの中には「有効」であっても危険なものがあるため、入力バリデーションは必ずしもデータを「安全」にするわけではありません。たとえば、有効な電子メールアドレスに SQL インジェクション攻撃を含むことや、有効な URL にクロスサイトスクリプティング攻撃を含むことがあります。クエリパラメータ化やエスケープなど、入力バリデーション以外の追加の防御策を常にデータに適用する必要があります。
 
-### Use mechanisms that uphold the separation of data and commands
+### データとコマンドの分離を維持するメカニズムを使用する
 
-Even if malicious data has passed the input checking, applications can prevent injection attacks by never executing those malicious data as commands/code. Multiple measures can achieve this goal, most of them are technology-dependent. For Example:
+悪意のあるデータが入力チェックを通過したとしても、アプリケーションはそれらの悪意のあるデータをコマンドやコードとして実行しないことでインジェクション攻撃を防ぐことができます。この目標を達成するには複数の対策がありますが、そのほとんどはテクノロジに依存します。例を以下に示します。
 
-- When using relational databases through SQL, utilize Prepared-Statements. SQL Injection attacks typically happen if an attacker can provide input data that “escapes” from SQL-Commands created through string concatenation. Using Prepared Statements allows the computer to automatically encode input data in a way that does not allow it to “escape” from the command template.
-- When using an ORM, be sure that you know how objects are mapped to SQL commands. While their layer of indirection might prevent common SQLi, specially prepared attacks are often still feasible.
-- Server-Side Template Injection (SSTI) uses a templating engine on the server-side to dynamically generate content that is then displayed to the user. SSTI engines often allow configuration of sandboxing, i.e., only allow execution of a limited amount of methods.
-- Executing System Commands with user input as parameters is prone to injection attacks. If feasible, this should be avoided.
+- SQL を介してリレーショナルデータベースを使用する際、プリペアドステートメントを利用します。SQL インジェクション攻撃は一般的に、攻撃者が文字列連結によって作成された SQL コマンドから「エスケープ」する入力データを提供できる場合に発生します。プリペアドステートメントを使用することで、コンピュータは入力データをコマンドテンプレートから「エスケープ」できないないように自動的にエンコードできます。
+- ORM を使用する際には、オブジェクトが SQL コマンドにどのようにマップされるかを把握してください。その間接層が一般的な SQLi を防ぐかもしれませんが、特別に準備された攻撃は依然として実行可能です。
+- サーバーサイドテンプレートインジェクション (SSTI) はサーバーサイドのテンプレートエンジンを使用して、ユーザーに表示されるコンテンツを動的に生成します。SSTI エンジンでは多くの場合、サンドボックスのコンフィギュレーション、つまり限られた数のメソッドの実行のみを許可します。
+- ユーザー入力をパラメータとしてシステムコマンドを実行すると、インジェクション攻撃を受けやすくなります。可能であれば、これを避けるべきです。
 
 #### JavaScript Injection Attacks
 
