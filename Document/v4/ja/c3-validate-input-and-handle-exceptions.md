@@ -47,24 +47,24 @@ permalink: /v4/ja/c3-validate-all-input
 
 セキュリティのために入力バリデーションは常にサーバーサイドで実行します。クライアントサイドバリデーションは機能面でもセキュリティ面でも役立ちますが、簡単にバイパスされます。したがって、クライアントサイドバリデーションはユーザビリティのために行われますが、アプリケーションのセキュリティはそれに依存してはいけません。たとえば、JavaScript バリデーションは特定のフィールドが数字で構成されなければならないことをユーザーに警告するかもしれません。それでも、サーバーサイドアプリケーションは送信されたデータがその機能に適した数値範囲の数字のみで構成していることを確認しなければなりません。クライアントサイドとサーバーサイドの両方のバリデーションを使用するもう一つの利点は、サーバーサイドバリデーションの警告がログ記録され、クライアントサイドバリデーションがバイパスした、潜在的なハッカーの操作を通知できることです。
 
-#### Regular Expressions
+#### 正規表現
 
-Regular expressions offer a way to check whether data matches a specific pattern. Let’s start with a basic example.
-The following regular expression defines an allowlist rule to validate usernames.
+正規表現はデータが特定のパターンにマッチするかどうかをチェックする方法を提供します。基本的な例から始めましょう。
+以下の正規表現はユーザー名を検証するための許可リストルールを定義します。
 
 ~~~ regex
 ^\[a-z0-9_\]{3,16}$
 ~~~
 
-This regular expression allows only lowercase letters, numbers, and the underscore character. The username is also restricted to a length of 3 and 16 characters.
+この正規表現は小文字、数字、アンダースコア文字のみを許可します。また、ユーザー名は 3 文字から 16 文字の長さに制限されています。
 
-Caution: Potential for Denial of Service
+注意: サービス拒否の可能性
 
-Care should be exercised when creating regular expressions. Poorly designed expressions may result in potential denial of service conditions (aka [ReDoS](https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS) ). Various tools can be tested to verify that regular expressions are not vulnerable to ReDoS.
+正規表現を作成する際には注意が必要です。設計が不十分な表現は潜在的なサービス拒否状態 (別名 [ReDoS](https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS) ) を引き起こすかもしれません。さまざまなツールをテストして、正規表現が ReDoS に対して脆弱でないことを検証できます。
 
-Caution: Complexity
+注意: 複雑性
 
-Regular expressions are just one way to accomplish validation. Regular expressions can be difficult to maintain or understand for some developers. Other validation alternatives involve writing validation methods programmatically, which can be easier to maintain for some developers.
+正規表現はバリデーションを実行する方法の一つにすぎません。正規表現は開発者によっては保守や理解が難しいことがあります。他のバリデーション方法としてプログラムでバリデーションメソッドを記述するものがあり、開発者によっては保守が簡単になるかもしれません。
 
 #### Unexpected User Input (Mass Assignment)
 
