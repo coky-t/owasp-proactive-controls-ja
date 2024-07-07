@@ -99,13 +99,13 @@ permalink: /v4/ja/c3-validate-all-input
 - Content-Security-Policy を利用して、JavaScript ベースの攻撃の攻撃対象領域を減らします
 - Angular のようなデフォルトで安全なフレームワークを使用します
 
-#### Validating and Sanitizing HTML
+#### HTML の妥当性確認とサニタイジング
 
-Consider an application that needs to accept HTML from users (via a WYSIWYG editor that represents content as HTML or features that directly accept HTML in input). In this situation, validation or escaping will not help.
-- Regular expressions are not expressive enough to understand the complexity of HTML5.
-- Encoding or escaping HTML will not help since it will cause the HTML not to render properly.
+ユーザーからの HTML を (コンテンツを HTML として表現する WYSIWYG エディタや、入力で HTML を直接受け入れる機能を介して) 受け入れる必要があるアプリケーションを考えてみます。このような状況では、バリデーションやエスケープは役立ちません。
+- 正規表現は HTML5 の複雑さを理解するのに十分な表現力がありません。
+- HTML をエンコードまたはエスケープしても、HTML が正しくレンダリングされなくなるため役に立ちません。
 
-Therefore, you need a library to parse and clean HTML formatted text. Please see the [XSS Prevention Cheat Sheet on HTML Sanitization](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet#RULE_.236_-_Sanitize_HTML_Markup_with_a_Library_Designed_for_the_Job) for more information on HTML Sanitization.
+したがって、HTML 形式のテキストを解析してクリーンにするライブラリが必要です。HTML サニタイゼーションの詳細については [XSS Prevention Cheat Sheet on HTML Sanitization](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet#RULE_.236_-_Sanitize_HTML_Markup_with_a_Library_Designed_for_the_Job) を参照してください。
 ### Special Case: Validate Data During Deserialization
 Some forms of input are so complex that validation can only minimally protect the application. For example, it’s dangerous to deserialize untrusted data or data that can be manipulated by an attacker. The only safe architectural pattern is to not accept serialized objects from untrusted sources or to only deserialize in limited capacity for only simple data types. You should avoid processing serialized data formats and use easier to defend formats such as JSON when possible.
 
