@@ -79,9 +79,9 @@ permalink: /v4/ja/c3-validate-all-input
 
 より多くの例が [OWASP Mass Assignment Cheat Sheet](https://www.owasp.org/index.php/Mass_Assignment_Cheat_Sheet) にあります。
 
-### Limits of Input Validation
+### 入力バリデーションの限界
 
-Input validation does not always make data “safe” since certain complex input forms may be “valid” but still dangerous. For example, a valid email address may contain a SQL injection attack, or a valid URL may contain a Cross Site Scripting attack. Additional defenses besides input validation should always be applied to data, such as query parameterization or escaping.
+複雑な入力フォームの中には「有効」であっても危険なものがあるため、入力バリデーションは必ずしもデータを「安全」にするわけではありません。たとえば、有効な電子メールアドレスに SQL インジェクション攻撃を含むことや、有効な URL にクロスサイトスクリプティング攻撃を含むことがあります。クエリパラメータ化やエスケープなど、入力バリデーション以外の追加の防御策を常にデータに適用する必要があります。
 
 ### Use mechanisms that uphold the separation of data and commands
 
