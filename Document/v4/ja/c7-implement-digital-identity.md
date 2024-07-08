@@ -6,15 +6,15 @@ document: OWASP Top Ten Proactive Controls 2024
 order: 411
 
 ---
-# C7: デジタル ID を実装する (Implement Digital Identity)
+# C7: デジタルアイデンティティを実装する (Implement Digital Identity)
 
 ## 説明
 
-Digital Identity is a unique representation of an individual, organization (or another subject) as they engage in an online transaction. Authentication is the process of verifying that an individual or entity is who they claim to be.
+デジタルアイデンティティはオンライン取引に関わる個人、組織 (または別の主体) の固有の表現です。認証は個人やエンティティが本人であることを検証するプロセスです。
 
-Session management is the process by which a server maintains the state of the user’s authentication so that the user may continue to use the system without re-authenticating.
-Digital identity, authentication, and session management are very complex topics. We're scratching the surface of the topic of Digital Identity here. Ensure that your most capable engineering talent is responsible for maintaining the complexity involved with most Identity solutions.
-The [NIST Special Publication 800-63B: Digital Identity Guidelines (Authentication and Lifecycle Management](https://pages.nist.gov/800-63-3/sp800-63b.html) provide solid guidance on implementing digital identity, authentication, and session management controls. Below are some recommendations for secure implementation to ensure strong digital identity controls are implemented in applications.
+セッション管理とは、ユーザーが再認証することなくシステムを使い続けられるように、サーバーがユーザーの認証状態を維持するプロセスです。
+デジタルアイデンティティ、認証、セッション管理は非常に複雑なトピックです。ここではデジタルアイデンティティのトピックの表面だけを取り上げています。最も有能なエンジニアリング人材がほとんどのアイデンティティソリューションに関わる複雑さを維持する責任を負うようにします。
+[NIST Special Publication 800-63B: Digital Identity Guidelines (Authentication and Lifecycle Management)](https://pages.nist.gov/800-63-3/sp800-63b.html) は、デジタルアイデンティティ、認証、セッション管理の実装に関する確かなガイダンスを提供しています。以下は、強力なデジタルアイデンティティコントロールをアプリケーションに実装されるようにするための、安全な実装に関する推奨事項です。
 
 ### Authentication Assurance Levels
 
@@ -109,7 +109,7 @@ Browser cookies are a common method for web applications to store session identi
 - HttpOnly flag should be set to prevent the cookie from being accessed via JavaScript.
 - Adding “[samesite](https://www.owasp.org/index.php/SameSite)” attributes to cookies prevents [some modern browsers](https://caniuse.com/#search=samesite) from sending cookies with cross-site requests and provides protection against cross-site request forgery and information leakage attacks.
 
-## 脆弱性の防止
+## 防止される脆弱性
 
 - [A07:2021 – Identification and Authentication Failures](https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/)
 - [OWASP Mobile Top 10 2016-M4- Insecure Authentication](https://owasp.org/www-project-mobile-top-10/2016-risks/m4-insecure-authentication)

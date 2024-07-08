@@ -19,7 +19,7 @@ This is the unofficial Japanese translation of the [OWASP Proactive Controls](ht
 * [C4: 最初からセキュリティに対処する (Address Security from the Start)](Document/v4/ja/c4-secure-architecture.md)
 * [C5: デフォルト設定を安全にする (Secure By Default Configurations)](Document/v4/ja/c5-secure-by-default.md)
 * [C6: コンポーネントを評価して更新する (Assess and Update your Components)](Document/v4/ja/c6-use-secure-dependencies.md)
-* [C7: デジタル ID を実装する (Implement Digital Identity)](Document/v4/ja/c7-implement-digital-identity.md)
+* [C7: デジタルアイデンティティを実装する (Implement Digital Identity)](Document/v4/ja/c7-implement-digital-identity.md)
 * [C8: ブラウザのセキュリティ機能を活用する (Leverage Browser Security Features)](Document/v4/ja/c8-help-the-browser-defend-the-user.md)
 * [C9: セキュリティログ記録とモニタリングを実装する (Implement Security Logging and Monitoring)](Document/v4/ja/c9-security-logging-and-monitoring.md)
 * [C10: サーバーサイドリクエストフォージェリを阻止する (Stop Server Side Request Forgery)](Document/v4/ja/c10-stop-server-side-request-forgery.md)

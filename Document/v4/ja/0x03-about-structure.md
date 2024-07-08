@@ -17,7 +17,7 @@ order: 403
 * C4: 最初からセキュリティに対処する (Address Security from the Start)
 * C5: デフォルト設定を安全にする (Secure By Default Configurations)
 * C6: コンポーネントを評価して更新する (Assess and Update your Components)
-* C7: デジタル ID を実装する (Implement Digital Identity)
+* C7: デジタルアイデンティティを実装する (Implement Digital Identity)
 * C8: ブラウザのセキュリティ機能を活用する (Leverage Browser Security Features)
 * C9: セキュリティログ記録とモニタリングを実装する (Implement Security Logging and Monitoring)
 * C10: サーバーサイドリクエストフォージェリを阻止する (Stop Server Side Request Forgery)
