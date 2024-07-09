@@ -16,13 +16,13 @@ order: 411
 デジタルアイデンティティ、認証、セッション管理は非常に複雑なトピックです。ここではデジタルアイデンティティのトピックの表面だけを取り上げています。最も有能なエンジニアリング人材がほとんどのアイデンティティソリューションに関わる複雑さを維持する責任を負うようにします。
 [NIST Special Publication 800-63B: Digital Identity Guidelines (Authentication and Lifecycle Management)](https://pages.nist.gov/800-63-3/sp800-63b.html) は、デジタルアイデンティティ、認証、セッション管理の実装に関する確かなガイダンスを提供しています。以下は、強力なデジタルアイデンティティコントロールをアプリケーションに実装されるようにするための、安全な実装に関する推奨事項です。
 
-### Authentication Assurance Levels
+### 認証保証レベル
 
-NIST 800-63b describes three levels of authentication assurance called Authentication Assurance Level (AAL):
+NIST 800-63b は認証保証レベル (Authentication Assurance Level, AAL) と呼ばれる三つの認証保証レベルについて説明している。
 
-- **Level 1 : Passwords**: The first level, AAL level 1 is reserved for lower-risk applications that do not contain PII or other private data. At AAL level 1 only single-factor authentication is required, typically through the use of a password (something you know). The security of passwords (or credentials in general) is of utmost importance, this includes both secure storage (using a key-derivation function and such) as well as corresponding processes, e.g. having a secure password-reset flow.
-- **Level 2 : Multi-Factor Authentication**: NIST 800-63b AAL level 2 is reserved for higher-risk applications that contain "self-asserted PII or other personal information made available online." At AAL level 2 multi-factor authentication is required including OTP or other forms of multi-factor implementation.
-- **Level 3 : Cryptographic Based Authentication**: NIST 800-63b Authentication Assurance Level 3 (AAL3) is required when the impact of compromised systems could lead to personal harm, significant financial loss, harm the public interest or involve civil or criminal violations. AAL3 requires authentication that is "based on proof of possession of a key through a cryptographic protocol." This type of authentication is used to achieve the strongest level of authentication assurance. This is typically done through hardware cryptographic modules. When developing web applications, this will commonly lead to WebAuthn or PassKeys.
+- **レベル 1 : パスワード**: 最初のレベルである AAL レベル 1 は PII やその他のプライベートデータを含まない低リスクのアプリケーションに予約されている。AAL レベル 1 では、通常、パスワード (あなたが知っているもの) を使用する単一要素認証のみが要求されます。パスワード (または一般的なクレデンシャル) のセキュリティは最も重要であり、これは安全なストレージ (鍵導出機能などを使用) と、安全なパスワードリセットフローなどの、対応するプロセスの両方を含みます。
+- **レベル 2 : 多要素認証**: NIST 800-63b AAL レベル 2 は「自己申告された PII またはオンラインで利用可能なその他の個人情報」を含む、より高リスクのアプリケーションに予約されています。AAL レベル 2 では、OTP やその他の形式の多要素実装を含む多要素認証が要求されます。
+- **レベル 3 : 暗号ベースの認証**: NIST 800-63b 認証保証レベル 3 (AAL3) は、危殆化したシステムの影響が個人の損害、重大な金銭的損失、公共の利益の損害、民事または刑事上の違反につながる可能性がある場合に要求されます。AAL3 は「暗号プロトコルによる鍵の所有証明に基づく」認証を要求します。このタイプの認証は最も強力なレベルの認証保証を実現するために使用されます。これは通常、ハードウェア暗号モジュールを通じて行われます。ウェブアプリケーションを開発する場合、これは一般的に WebAuthn や PassKeys につながります。
 
 #### Level 2 : Multi-Factor Authentication
 
