@@ -39,17 +39,17 @@ NIST 800-63b AAL レベル 2 は「自己申請された PII またはオンラ�
 
 NIST 800-63b 認証保証レベル 3 (AAL3) は、危殆化したシステムの影響が個人の損害、重大な金銭的損失、公共の利益の損害、民事または刑事上の違反につながる可能性がある場合に要求されます。AAL3 は「暗号プロトコルによる鍵の所有証明に基づく」認証を要求します。このタイプの認証は最も強力なレベルの認証保証を実現するために使用されます。これは通常、ハードウェア暗号モジュールを通じて行われます。ウェブアプリケーションを開発する場合、これは一般的に WebAuthn や PassKeys につながります。
 
-### Session Management: client- vs server-side sessions
+### セッション管理: クライアントサイドセッションとサーバーサイドセッション
 
-HTTP on its own is a session-less protocol: no data is shared between requests. When you look at how we are using the web, this is clearly not what is user-visible as for example you log into a website and stay logged in during subsequent requests. This is possible as session-management has been implemented on top of HTTP.
-Once the initial successful user authentication has taken place, an application may choose to track and maintain this authentication state for a limited amount of time. This will allow the user to continue using the application without having to keep re-authentication with each request. Tracking of this user state is called Session Management.
-Session-Management can be roughly categorized in client- and server-side session management. In the former, all session data is stored within the client and transmitted on each request to the server. The latter stores session-specific data on the server, e.g., in a database, and only transmits an identifier to the client. The client then submits only the session-identifier on each request and the server retrieves the session-data from the server-side storage.
+HTTP はそれ自体がセッションレスプロトコルです。つまり、リクエスト間でデータが共有されません。私たちがどのようにウェブを使用しているかを見てみると、たとえばウェブサイトにログインすると、後続のリクエストの間もログインを維持するため、ユーザーに見えるものではないことが明らかです。これはセッション管理が HTTP 上に実装されているから可能なのです。
+最初のユーザー認証が成功すると、アプリケーションはこの認証状態を追跡して、一定時間維持することを選択できます。これにより、ユーザーはリクエストごとに再認証する必要なくアプリケーションを使い続けることができます。このユーザー状態の追跡をセッション管理と呼びます。
+セッション管理はクライアントサイドとサーバーサイドのセッション管理に大別できます。前者では、すべてのセッションデータをクライアント内に保存し、リクエストごとにサーバーに送信します。後者では、セッション固有のデータをサーバー、たとえばデータベースなど、に保存し、識別子のみをクライアントに送信します。それから、クライアントはリクエストごとにセッション識別子のみを送信し、サーバーはサーバーサイドストレージからセッションデータを取り出します。
 
-From a security-perspective server-side sessions have multiple benefits:
-- Data is not directly stored on the client: this can be problematic, e.g., when handling sensitive data. In addition, client-side session-management solutions must ensure that client-side data has not been tampered with.
-- Less data is transmitted between client and server (which is not as relevant as network bandwidth has increased)
-- Server-side session-management allows for session-invalidation, e.g., a user can logout all of their sessions
-By default, always use server-side session management..
+セキュリティの観点からみると、サーバーサイドセッションには複数の利点がある。
+- データはクライアントに直接保存されません。これは、機密データを扱う場合などに問題となる可能性があります。さらに、クライアントサイドセッション管理ソリューションではクライアントサイドデータが改竄されていないことを確保しなければなりません。
+- クライアントとサーバー間で送信されるデータが少なくなります (ネットワーク帯域幅が増加したため、それほど重要ではありません)
+- サーバーサイドセッション管理はセッションの無効化を可能にします。たとえば、ユーザーはすべてのセッションからログアウトできます。
+デフォルトでは、常にサーバーサイドセッション管理を使用しましょう。
 
 ## 実装
 
