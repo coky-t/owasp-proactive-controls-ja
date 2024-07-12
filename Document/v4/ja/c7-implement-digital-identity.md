@@ -24,16 +24,16 @@ NIST 800-63b は認証保証レベル (Authentication Assurance Level, AAL) と�
 - **レベル 2 : 多要素認証**: NIST 800-63b AAL レベル 2 は「自己申告された PII またはオンラインで利用可能なその他の個人情報」を含む、より高リスクのアプリケーションに予約されています。AAL レベル 2 では、OTP やその他の形式の多要素実装を含む多要素認証が要求されます。
 - **レベル 3 : 暗号ベースの認証**: NIST 800-63b 認証保証レベル 3 (AAL3) は、危殆化したシステムの影響が個人の損害、重大な金銭的損失、公共の利益の損害、民事または刑事上の違反につながる可能性がある場合に要求されます。AAL3 は「暗号プロトコルによる鍵の所有証明に基づく」認証を要求します。このタイプの認証は最も強力なレベルの認証保証を実現するために使用されます。これは通常、ハードウェア暗号モジュールを通じて行われます。ウェブアプリケーションを開発する場合、これは一般的に WebAuthn や PassKeys につながります。
 
-#### Level 2 : Multi-Factor Authentication
+#### レベル 2 : 多要素認証
 
-NIST 800-63b AAL level 2 is reserved for higher-risk applications that contain "self-asserted PII or other personal information made available online." At AAL level 2 multi-factor authentication is required including OTP or other forms of multi-factor implementation.
-Multi-factor authentication (MFA) ensures that users are who they claim to be by requiring them to identify themselves with a combination of:
+NIST 800-63b AAL レベル 2 は「自己申請された PII またはオンラインで利用可能なその他の個人情報」を含む、より高リスクのアプリケーションに予約されています。AAL レベル 2 では、OTP やその他の形式の多要素実装を含む多要素認証が要求されます。
+多要素認証 (MFA) は以下を組み合わせて本人確認を要求することで、ユーザーが本人であることを確保します。
 
-- Something you know – password or PIN
-- Something you own – token or phone, when using a phone please use a standard authenticator application heeding standardized protocols such as FIDO2.
-- Something you are – biometrics, such as a fingerprint
-Using passwords as a sole factor provides weak security. Multi-factor solutions provide a more robust solution by requiring an attacker to acquire more than one element to authenticate with the service.
-It is worth noting that biometrics, when employed as a single factor of authentication, are not considered acceptable secrets for digital authentication. They can be obtained online or by taking a picture of someone with a camera phone (e.g., facial images) with or without their knowledge, lifted from objects someone touches (e.g., latent fingerprints), or captured with high-resolution images (e.g., iris patterns). Biometrics must be used only as part of multi-factor authentication with a physical authenticator (something you own). For example, accessing a multi-factor one-time password (OTP) device will generate a one-time password that the user manually enters for the verifier.
+- あなたが知っているもの (Something you know) – パスワードや PIN
+- あなたが持っているもの (Something you own) – トークンやスマホ。スマホを使用する場合には FIDO2 などの標準化されたプロトコルに従った標準認証アプリケーションを使用してください。
+- あなた自身であるもの (Something you are) – 指紋などの生体認証
+パスワードを唯一の要素として使用すると、セキュリティが弱くなります。多要素認証ソリューションは、攻撃者がサービスを認証するために複数の要素を取得することを要求するため、より堅牢なソリューションを提供します。
+生体認証は、認証の単一要素として採用される場合、デジタル認証に許容されるシークレットとはみなされないことに留意してください。生体認証は、本人の許諾の有無にかかわらずオンラインやカメラ付きスマホで人物の写真を撮影したり (顔画像など)、本人が触れたものから採取したり (潜伏している指紋など)、高解像度画像からキャプチャしたり (虹彩パターンなど) できます。生体認証は、物理的な認証子 (あなたが持っているもの) を使用する多要素認証の一部としてのみ使用しなければなりません。たとえば、多要素ワンタイムパスワード (OTP) デバイスにアクセスすると、ワンタイムパスワードを生成し、ユーザーが検証器に対して手動で入力します。
 
 #### Level 3 : Cryptographic Based Authentication
 
