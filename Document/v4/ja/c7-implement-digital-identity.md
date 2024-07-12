@@ -53,16 +53,16 @@ HTTP はそれ自体がセッションレスプロトコルです。つまり、
 
 ## 実装
 
-### When using Passwords
+### パスワードの使用について
 
-#### Password Requirements
-Passwords should comply with the following requirements at the very least:
-- be at least 8 characters in length if multi-factor authentication (MFA) and other controls are also used. If MFA is not possible, this should be increased to at least 10 characters
-- all printing ASCII characters as well as the space character should be acceptable in memorized secrets
-- encourage the use of long passwords and passphrases
-- remove complexity requirements as these have been found to be of limited effectiveness. Instead, the adoption of MFA or longer password lengths is recommended
-- ensure that passwords used are not commonly used passwords that have been already been leaked in a previous compromise. You may choose to block the top 1000 or 10000 most common passwords which meet the above length requirements and are found in compromised password lists. The following link contains the most commonly found passwords: <https://github.com/danielmiessler/SecLists/tree/master/Passwords>
-- Enforce password rotation, to avoid potential breaches due to the fact the same password is being used for a very long period of time
+#### パスワードの要件
+パスワードは少なくとも以下の要件に準拠すべきです。
+- 多要素認証 (MFA) やその他のコントロールも使用する場合、少なくとも 8 文字の長さにします。MFA が不可能な場合、少なくとも 10 文字に増やすべきです
+- 記録するシークレットには、表示可能な ASCII 文字とスペース文字を許容すべきです
+- 長いパスワードやパスフレーズの使用を推奨します
+- 複雑さの要件は効果が限定的であることが判明しているため削除します。その代わりに、MFA やより長いパスワード長の採用をお勧めします
+- 使用するパスワードが、過去の侵害ですでに漏洩したことがある一般的に使用されるパスワードではないことを確認します。上記の長さ要件を満たし、侵害されたパスワードリストにある最も一般的な上位 1000 または 10000 のパスワードをブロックすることを選択できます。次のリンクには最も一般的に見られるパスワードがあります: <https://github.com/danielmiessler/SecLists/tree/master/Passwords>
+- パスワードのローテーションを強制して、同じパスワードが非常に長期間使用されることによる潜在的な侵害を避けます
 
 #### Implement Secure Password Recovery Mechanism
 
