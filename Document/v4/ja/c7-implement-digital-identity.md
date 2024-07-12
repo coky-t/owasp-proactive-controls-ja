@@ -35,9 +35,9 @@ NIST 800-63b AAL レベル 2 は「自己申請された PII またはオンラ�
 パスワードを唯一の要素として使用すると、セキュリティが弱くなります。多要素認証ソリューションは、攻撃者がサービスを認証するために複数の要素を取得することを要求するため、より堅牢なソリューションを提供します。
 生体認証は、認証の単一要素として採用される場合、デジタル認証に許容されるシークレットとはみなされないことに留意してください。生体認証は、本人の許諾の有無にかかわらずオンラインやカメラ付きスマホで人物の写真を撮影したり (顔画像など)、本人が触れたものから採取したり (潜伏している指紋など)、高解像度画像からキャプチャしたり (虹彩パターンなど) できます。生体認証は、物理的な認証子 (あなたが持っているもの) を使用する多要素認証の一部としてのみ使用しなければなりません。たとえば、多要素ワンタイムパスワード (OTP) デバイスにアクセスすると、ワンタイムパスワードを生成し、ユーザーが検証器に対して手動で入力します。
 
-#### Level 3 : Cryptographic Based Authentication
+#### レベル 3 : 暗号ベースの認証
 
-NIST 800-63b Authentication Assurance Level 3 (AAL3) is required when the impact of compromised systems could lead to personal harm, significant financial loss, harm the public interest or involve civil or criminal violations. AAL3 requires authentication that is "based on proof of possession of a key through a cryptographic protocol." This type of authentication is used to achieve the strongest level of authentication assurance. This is typically done through hardware cryptographic modules. When developing web applications, this will commonly lead to WebAuthn or PassKeys.
+NIST 800-63b 認証保証レベル 3 (AAL3) は、危殆化したシステムの影響が個人の損害、重大な金銭的損失、公共の利益の損害、民事または刑事上の違反につながる可能性がある場合に要求されます。AAL3 は「暗号プロトコルによる鍵の所有証明に基づく」認証を要求します。このタイプの認証は最も強力なレベルの認証保証を実現するために使用されます。これは通常、ハードウェア暗号モジュールを通じて行われます。ウェブアプリケーションを開発する場合、これは一般的に WebAuthn や PassKeys につながります。
 
 ### Session Management: client- vs server-side sessions
 
