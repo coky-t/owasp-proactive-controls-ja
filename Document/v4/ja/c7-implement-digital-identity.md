@@ -69,9 +69,9 @@ HTTP はそれ自体がセッションレスプロトコルです。つまり、
 アプリケーションはユーザーがパスワードを忘れた場合に自分のアカウントにアクセスできるようなメカニズムを備えていることが一般的です。パスワード回復機能の優れた設計ワークフローでは多要素認証要素を使用します。たとえば、セキュリティの質問 (ユーザーが知っているもの) を尋ね、生成されたトークンをデバイス (ユーザーが持っているもの) に送信します。
 詳細については [Forgot_Password_Cheat_Sheet](https://www.owasp.org/index.php/Forgot_Password_Cheat_Sheet) および [Choosing_and_Using_Security_Questions_Cheat_Sheet](https://www.owasp.org/index.php/Choosing_and_Using_Security_Questions_Cheat_Sheet) をご覧ください。
 
-#### Implement Secure Password Storage
+#### 安全なパスワード保管の実装
 
-In order to provide strong authentication controls, an application must securely store user credentials. Furthermore, cryptographic controls should be in place such that if a credential (e.g., a password) is compromised, the attacker does not immediately have access to this information. Please see the [OWASP Password Storage Cheat Sheet](https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet) for further details.
+強力な認証コントロールを提供するには、アプリケーションはユーザークレデンシャルを安全に保存しなければなりません。さらに、クレデンシャル (パスワードなど) が侵害された場合でも、攻撃者がすぐにこの情報にアクセスできないように、暗号コントロールを行うべきです。詳細については [OWASP Password Storage Cheat Sheet](https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet) をご覧ください。
 
 ### Server-Side Session-Management
 
