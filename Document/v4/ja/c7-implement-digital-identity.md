@@ -64,10 +64,10 @@ HTTP はそれ自体がセッションレスプロトコルです。つまり、
 - 使用するパスワードが、過去の侵害ですでに漏洩したことがある一般的に使用されるパスワードではないことを確認します。上記の長さ要件を満たし、侵害されたパスワードリストにある最も一般的な上位 1000 または 10000 のパスワードをブロックすることを選択できます。次のリンクには最も一般的に見られるパスワードがあります: <https://github.com/danielmiessler/SecLists/tree/master/Passwords>
 - パスワードのローテーションを強制して、同じパスワードが非常に長期間使用されることによる潜在的な侵害を避けます
 
-#### Implement Secure Password Recovery Mechanism
+#### 安全なパスワード回復メカニズムの実装
 
-It is common for an application to have a mechanism for a user to gain access to their account in the event they forget their password. A good design workflow for a password recovery feature will use multi-factor authentication elements. For example, it may ask a security question - something they know, and then send a generated token to a device - something they own.
-Please see the [Forgot_Password_Cheat_Sheet](https://www.owasp.org/index.php/Forgot_Password_Cheat_Sheet) and [Choosing_and_Using_Security_Questions_Cheat_Sheet](https://www.owasp.org/index.php/Choosing_and_Using_Security_Questions_Cheat_Sheet) for further details.
+アプリケーションはユーザーがパスワードを忘れた場合に自分のアカウントにアクセスできるようなメカニズムを備えていることが一般的です。パスワード回復機能の優れた設計ワークフローでは多要素認証要素を使用します。たとえば、セキュリティの質問 (ユーザーが知っているもの) を尋ね、生成されたトークンをデバイス (ユーザーが持っているもの) に送信します。
+詳細については [Forgot_Password_Cheat_Sheet](https://www.owasp.org/index.php/Forgot_Password_Cheat_Sheet) および [Choosing_and_Using_Security_Questions_Cheat_Sheet](https://www.owasp.org/index.php/Choosing_and_Using_Security_Questions_Cheat_Sheet) をご覧ください。
 
 #### Implement Secure Password Storage
 
