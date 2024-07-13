@@ -73,9 +73,9 @@ HTTP はそれ自体がセッションレスプロトコルです。つまり、
 
 強力な認証コントロールを提供するには、アプリケーションはユーザークレデンシャルを安全に保存しなければなりません。さらに、クレデンシャル (パスワードなど) が侵害された場合でも、攻撃者がすぐにこの情報にアクセスできないように、暗号コントロールを行うべきです。詳細については [OWASP Password Storage Cheat Sheet](https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet) をご覧ください。
 
-### Server-Side Session-Management
+### サーバーサイドセッション管理
 
-Typically server-side session management is implemented with HTTP cookies which are used to store a session-identifier. When a new session is requested, the server generates a new session-identifier and transmits it to the client (browser). On each subsequent request, the session-identifier is transmitted from the client to the server, and the server uses this session-identifier to lookup session-data within a server-side database.
+通常、サーバーサイドセッション管理はセッション識別子の保存に使用される HTTP クッキーで実装します。新しいセッションがリクエストされると、サーバーは新しいセッション識別子を生成し、クライアント (ブラウザ) に送信します。その後のリクエストごとに、セッション識別子はクライアントからサーバーに送信され、サーバーはこのセッション識別子を使用して、サーバーサイドデータベース内のセッションデータを検索します。
 
 #### Session Generation and Expiration
 
