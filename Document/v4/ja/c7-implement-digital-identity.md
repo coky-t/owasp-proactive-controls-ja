@@ -77,15 +77,15 @@ HTTP はそれ自体がセッションレスプロトコルです。つまり、
 
 通常、サーバーサイドセッション管理はセッション識別子の保存に使用される HTTP クッキーで実装します。新しいセッションがリクエストされると、サーバーは新しいセッション識別子を生成し、クライアント (ブラウザ) に送信します。その後のリクエストごとに、セッション識別子はクライアントからサーバーに送信され、サーバーはこのセッション識別子を使用して、サーバーサイドデータベース内のセッションデータを検索します。
 
-#### Session Generation and Expiration
+#### セッションの生成と有効期限
 
-User state is tracked in a session. This session is typically stored on the server for traditional web based session management. A session identifier is then given to the user so the user can identify which server-side session contains the correct user data. The client only needs to maintain this session identifier, which also keeps sensitive server-side session data off of the client.
-Here are a few controls to consider when building or implementing session management solutions:
-- Ensure that the session id is long, unique and random, i.e., is of high entropy.
-- The application should generate a new session during authentication and re-authentication.
-- The application should implement an idle timeout after a period of inactivity and an absolute maximum lifetime for each session, after which users must re-authenticate. The length of the timeouts should be inversely proportional with the value of the data protected.
+ユーザーの状態はセッションで追跡されます。このセッションは一般的に従来のウェブベースのセッション管理のためにサーバー上に保存されます。そして、セッション識別子がユーザーに与えられ、ユーザーはどのサーバーサイドセッションに正しいユーザーデータを含むかを識別できます。クライアントはこのセッション識別子を維持するだけでよく、機密性の高いサーバーサイドセッションデータをクライアントから切り離すことができます。
+セッション管理ソリューションを構築または実装する際に考慮すべきコントロールをいくつか以下に示します。
+- セッション ID が長く、一意で、ランダムである、つまり、エントロピーが高いことを確保します。
+- アプリケーションは認証および再認証時に新しいセッションを生成すべきです。
+- アプリケーションは、一定期間の非アクティブの後のアイドルタイムアウトと、セッションごとの絶対的な最大存続期間を実装すべきであり、その後ユーザーは再認証しなければなりません。タイムアウトの長さは、保護されるデータの価値に反比例すべきです。
 
-Please see the [Session Management Cheat Sheet](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet) further details. ASVS Section 3 covers additional session management requirements.
+詳細については [Session Management Cheat Sheet](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet) をご覧ください。ASVS セクション 3 では追加のセッション管理要件をカバーしています。
 
 ### Client-Side Session-Management
 
