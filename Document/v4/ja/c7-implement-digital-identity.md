@@ -87,10 +87,10 @@ HTTP はそれ自体がセッションレスプロトコルです。つまり、
 
 詳細については [Session Management Cheat Sheet](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet) をご覧ください。ASVS セクション 3 では追加のセッション管理要件をカバーしています。
 
-### Client-Side Session-Management
+### クライアントサイドセッション管理
 
-Server-side sessions can be limiting for some forms of authentication. "Stateless services" allow for client side management of session data for performance purposes so the server has less of a burden to store user sessions.
-These "stateless" applications typically generate a short-lived access token containing all of the current user’s access permissions which is then included in all subsequent requests. Cryptography must be employed so that the client cannot alter the permissions stored within the token. When a client requests a server operation, the client includes the retrieved access token and the server verifies that the token has not been tampered with and extracts the permissions from the token. These permissions are then used for subsequent permission checks.
+サーバーサイドセッションは認証の形式によっては制限になることがあります。「ステートレスサービス」は、パフォーマンス上の目的でクライアントサイドでセッションデータを管理できるため、サーバーがユーザーセッションを保存する負担を軽減します。
+これらの「ステートレス」アプリケーションは一般的に現在のユーザーのアクセスパーミッションを含む短期限のアクセストークンを生成し、その後のすべてのリクエストに含まれます。クライアントがトークン内に格納されているパーミッションを変更できないように、暗号技術を使用しなければなりません。クライアントがサーバー操作をリクエストすると、クライアントは取得したアクセストークンを含め、サーバーはトークンが改竄されていないことを検証し、トークンからパーミッションを抽出します。これらのパーミッションはその後のパーミッションチェックに使用されます。
 
 #### JWT (JSON Web Tokens)
 
