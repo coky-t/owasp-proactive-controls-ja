@@ -98,16 +98,16 @@ JSON Web Token (JWT) はオープンスタンダード ([RFC 7519](https://tools
 このアプローチは、クライアントとサーバーのテクノロジが異なっていても相互作用できるという点で、ステートレスかつポータブルです。
 JWT を使用している場合は、返された JWT が実際に使用している署名アルゴリズムの一つを使用していることを確認する必要があります。そうしなければ、攻撃者が NULL アルゴリズムで署名された JWT を作成しようとしたり、MAC 対署名の混同攻撃を使用したり、署名用のカスタム JWS 鍵を提供しようとする可能性があります。JWT を発行する際には、JWT の署名に安全な秘密鍵を使用していることを再確認してください。出力されたそれぞれの JWT は、オフラインクラッキング攻撃を実行するために必要なすべての情報を攻撃者に提供するため、鍵も頻繁にローテーションすべきです。
 
-### Browser Cookies
+### ブラウザクッキー
 
-Browser cookies are a common method for web applications to store session identifiers for web applications implementing standard session management techniques. Here are some defenses to consider when using browser cookies.
+ブラウザクッキーは標準的なセッション管理技法を実装するウェブアプリケーションのセッション識別子を保存するための一般的な方法です。ブラウザクッキーを使用する際に考慮すべき防御策をいくつか示します。
 
-- When browser cookies are used as the mechanism for tracking the session of an authenticated user, these should be accessible to a minimum set of domains and paths and should be tagged to expire at, or soon after, the session’s validity period.
-  - Please be aware that not explicitly stating a domain during cookie setup will use the current origin as domain. This is a sensible default.
-  - Please be aware, that while stating a path during cookie setup will limit the browser to only submit the cookie if the request lies within the stated path. This protects the cookie of one application from being accessed by another application within a different path on the same server. This protection is brittle: if the “other” application has an XSS vulnerability and the attacker can introduce iframes, the “path” protection can be circumvented.
-- The ‘secure’ flag should be set to ensure the transfer is done via secure channel only (TLS).
-- HttpOnly flag should be set to prevent the cookie from being accessed via JavaScript.
-- Adding “[samesite](https://www.owasp.org/index.php/SameSite)” attributes to cookies prevents [some modern browsers](https://caniuse.com/#search=samesite) from sending cookies with cross-site requests and provides protection against cross-site request forgery and information leakage attacks.
+- ブラウザクッキーを認証されたユーザーのセッションを追跡するメカニズムとして使用する場合、これらは最小限のドメインとパスのセットからアクセス可能であり、セッションの有効期限またはその直後に失効するようにタグ付けすべきです。
+  - クッキーの設定時にドメインを明示的に指定しないと、現在のオリジンがドメインとして使用されることに注意してください。これは道理にかなったデフォルトです。
+  - クッキーの設定時にパスを指定すると、リクエストが指定されたパス内にある場合にのみ、ブラウザがクッキーを送信するように制限されることを注意してください。これは、あるアプリケーションのクッキーが同じサーバー上の別のパス内にある別のアプリケーションからアクセスされることを防ぎます。この保護は脆弱です。「他の」アプリケーションに XSS 脆弱性があり、攻撃者が iframe を導入できる場合、「パス」保護を回避できます。
+- 'secure' フラグを設定して、転送が安全なチャネル (TLS) のみで行われるようにします。
+- HttpOnly フラグを設定して、JavaScript 経由でクッキーにアクセスできないようにします。
+- クッキーに "[samesite](https://www.owasp.org/index.php/SameSite)" 属性を追加すると、[現在のブラウザの一部](https://caniuse.com/#search=samesite) がクロスサイトリクエストでクッキーを送信するのを防ぎ、クロスサイトリクエストフォージェリや情報漏洩攻撃からの保護を提供します。
 
 ## 防止される脆弱性
 
