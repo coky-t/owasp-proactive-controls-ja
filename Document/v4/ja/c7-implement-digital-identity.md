@@ -94,9 +94,9 @@ HTTP はそれ自体がセッションレスプロトコルです。つまり、
 
 #### JWT (JSON Web Tokens)
 
-JSON Web Token (JWT) is an open standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted as long as it is digitally signed by a trusted authority. A JWT token is created during authentication and is verified by the server (or servers) before any processing. However, JWTs are often not saved by the server after initial creation. JWTs are typically created and then handed to a client without being saved by the server in any way. The integrity of the token is maintained through the use of digital signatures so a server can later verify that the JWT is still valid and was not tampered with since its creation.
-This approach is both stateless and portable in the way that client and server technologies can be different yet still interact.
-Please note, that if you are using JWTs you have to make sure that the returned JWT is actually using one of the signing algorithms that you are using. Otherwise, an attacker could try to create a JWT signed with the NULL algorithm, use a MAC-vs-Signature confusion attack, or provide a custom JWS key for signing. When you are issuing JWTs, make double-sure that you are using a secure private key for signing the JWTs: each output JWT gives an attacker all information needed to perform an offline cracking attack, so you should rotate keys frequently too.
+JSON Web Token (JWT) はオープンスタンダード ([RFC 7519](https://tools.ietf.org/html/rfc7519)) であり、当事者間で JSON オブジェクトとして情報を安全に転送するためのコンパクトで自己完結的な方法を定義します。この情報は信頼できる機関によってデジタル署名されている限り、検証できて信頼できます。JWT トークンは認証時に作成され、処理の前にサーバー (または複数のサーバー) によって検証されます。しかし、JWT は最初の作成後にサーバーに保存されないことがよくあります。JWT は一般的に作成されてから、サーバーによって保存されることなくクライアントに渡されます。トークンの完全性はデジタル署名の使用によって維持されるため、サーバーは JWT がまだ有効であり、作成後に改竄されていないことを後で検証できます。
+このアプローチは、クライアントとサーバーのテクノロジが異なっていても相互作用できるという点で、ステートレスかつポータブルです。
+JWT を使用している場合は、返された JWT が実際に使用している署名アルゴリズムの一つを使用していることを確認する必要があります。そうしなければ、攻撃者が NULL アルゴリズムで署名された JWT を作成しようとしたり、MAC 対署名の混同攻撃を使用したり、署名用のカスタム JWS 鍵を提供しようとする可能性があります。JWT を発行する際には、JWT の署名に安全な秘密鍵を使用していることを再確認してください。出力されたそれぞれの JWT は、オフラインクラッキング攻撃を実行するために必要なすべての情報を攻撃者に提供するため、鍵も頻繁にローテーションすべきです。
 
 ### Browser Cookies
 
