@@ -4,7 +4,7 @@ This is the unofficial Japanese translation of the [OWASP Proactive Controls](ht
 
 ### Originator
 
-- Project Site - <https://owasp.org/www-project-proactive-controls/>
+- Project Site - <https://top10proactive.owasp.org/>
 - Project Repository - <https://github.com/OWASP/www-project-proactive-controls>
 
 # OWASP Top 10 Proactive Controls v4 (2024) 日本語版
