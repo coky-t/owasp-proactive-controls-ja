@@ -10,7 +10,7 @@ This is the unofficial Japanese translation of the [OWASP Proactive Controls](ht
 # OWASP Top 10 Proactive Controls v4 (2024) 日本語版
 
 * [このプロジェクトについて](Document/docs/index.md)
-* [OWASP について](Document/introduction/about-owasp.md)
+* [OWASP について](Document/docs/introduction/about-owasp.md)
 * [はじめに](Document/docs/the-top-10/introduction.md)
 * [C1: アクセス制御を実装する (Implement Access Control)](Document/docs/the-top-10/c1-accesscontrol.md)
 * [C2: 暗号を正しい方法で使用する (Use Cryptography the proper way)](Document/docs/the-top-10/c2-crypto.md)
