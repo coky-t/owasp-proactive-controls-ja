@@ -4,7 +4,7 @@
 
 ## 目的と目標
 
-**OWASP Top 10 Proactive Controls プロジェクト** (OPC) の目的は、ソフトウェア開発者が注意しなければならない最も重要な懸念事項を説明することで、アプリケーションセキュリティに対する意識を高めることです。OWASP Proactive Controls を使用して、開発者がアプリケーションセキュリティに取り組み始めることをお勧めします。開発者は他の組織の失敗から学ぶことができます。OWASP Proactive Controls が安全なソフトウェアを構築する取り組みに役立つことを願っています。
+**OWASP Top 10 Proactive Controls プロジェクト** の目的は、ソフトウェア開発者が注意しなければならない最も重要な懸念事項を説明することで、アプリケーションセキュリティに対する意識を高めることです。OWASP Proactive Controls を使用して、開発者がアプリケーションセキュリティに取り組み始めることをお勧めします。開発者は他の組織の失敗から学ぶことができます。OWASP Proactive Controls が安全なソフトウェアを構築する取り組みに役立つことを願っています。
 
 ## 対象読者
 
@@ -18,7 +18,7 @@
 
 完全に安全な開発プロセスには OWASP ASVS などの標準からの包括的な要件を含めることに加えて、[OWASP SAMM](https://www.owasp.org/index.php/OWASP_SAMM_Project) や [BSIMM](https://www.bsimm.com/) などの成熟度モデルで説明されているさまざまなソフトウェア開発アクティビティも含めるべきです。
 
-## プロジェクトリーダー (アルファベット順)
+## プロジェクトリーダー
 
 * [Andreas Happe](mailto:andreas.happe@owasp.org), [linkedin](https://www.linkedin.com/in/andreashappe/), [github](https://github.com/andreashappe), [twitter/x](https://twitter.com/andreashappe)
 * [Jim Manico](mailto:jim.manico@owasp.org), [linkedin](https://www.linkedin.com/in/jmanico/), [github](https://github.com/jmanico), [twitter/x](https://twitter.com/manicode)
