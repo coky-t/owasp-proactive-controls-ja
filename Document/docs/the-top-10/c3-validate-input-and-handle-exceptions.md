@@ -18,6 +18,18 @@
 
 - **意味的妥当性** はアプリケーションの機能とコンテキストの許容範囲内でのみ入力を受け付けることを含みます。たとえば、日付範囲を選択する場合、開始日は終了日より前でなければなりません。
 
+## 脅威
+
+- 攻撃者はデータベースのクエリを操作するために悪意のある入力を送信することで、SQL インジェクション脆弱性を悪用して機密データへの認可されていないアクセスを得る可能性があります。
+- 攻撃者はウェブページに悪意のあるスクリプトを注入することでクロスサイトスクリプティング (XSS) を実行して、他のユーザーのブラウザで実行され、セッショントークンや個人情報を盗む可能性があります。
+- 攻撃者はシステムコールや API に悪意のあるコマンドを注入することで任意のコードをリモートから実行して、ターゲットシステムを制御する可能性があります。
+- 攻撃者は想定される長さを超える入力を供給することでバッファオーバーフローエラーを引き起こし、メモリを上書きして任意のコードを実行する可能性があります。
+- 攻撃者は不正な入力や過剰な入力でシステムを圧迫することでサービス拒否攻撃を仕掛け、正規のユーザーがサービスを利用できなくなる可能性があります。
+- 攻撃者はパストラバーサル攻撃を通じて認可されていないファイルやディレクトリにアクセスして、機密性の高いシステムファイルや設定データを流出する可能性があります。
+- 攻撃者は XML ドキュメントに悪意のあるペイロードを挿入して XML 解析の脆弱性を悪用し、情報漏洩やシステム侵害につながる可能性があります。
+- 攻撃者はサーバーサイドのテンプレートエンジンに悪意のあるテンプレートを挿入して、サーバー上でリモートコード実行を実現する可能性があります。
+- 攻撃者は HTTP パラメータ汚染攻撃を通じてアプリケーションを混乱させてセキュリティコントロールをバイパスして、アプリケーションロジックを操作したり、制限された機能にアクセスする可能性があります。
+
 ## 実装
 
 インジェクション攻撃に対する保護は、一般的に多層防御アプローチに基づき、入力フィルタリング、出力エスケープ、堅牢化メカニズムの利用を組み込んでいます。前者二つは実装されるセキュリティ対策にのみ依存し、後者は主にクライアントサポートに依存します。たとえば、XSS に対する保護では、入力から XSS をフィルタリングし、出力データをサーバーサイドでエスケープすることで、使用するウェブブラウザに関係なく XSS を防ぎます。Content-Security-Policy を追加することで XSS を防ぎますが、ユーザーのブラウザがサポートしている場合に限ります。このため、セキュリティはオプションの堅牢化対策だけに依存してはいけません。
@@ -27,6 +39,7 @@
 提供されたデータを信用してはいけません。すべてのデータに悪意のあるパターンがないかスクリーニングするか、さらに良い方法として、すべてのデータを許可リストと照合します。
 
 #### 許可リストと拒否リスト
+
 構文バリデーションを実行するには、一般に許可リストと拒否リストとして知られている、二つの一般的なアプローチがあります。
 
 - 拒否リスト処理または **拒否リストバリデーション** は、与えられたデータが「既知の不正」コンテンツを含まないことをチェック試行します。たとえば、ウェブアプリケーションは XSS を防ぐために &lt;SCRIPT&gt; というテキストを含む入力をブロックするかもしれません。しかし、この防御は小文字の script タグや大文字小文字が混在する script タグで回避されるかもしれません。
@@ -85,6 +98,7 @@
 #### JavaScript インジェクション攻撃
 
 特殊なケースとして JavaScript ベースのインジェクション攻撃 (XSS) があります。注入された悪意のあるコードは一般的に被害者のブラウザ内で実行されます。通常、攻撃者はブラウザからユーザーのセッション情報を盗もうとしますが、(サーバーサイドで行うような) コマンドを直接実行しようとはしません。サーバーサイドの入力フィルタリングと出力エスケープに加えて、複数のクライアントサイド堅牢化対策を講じることができます (これらは、サーバーサイドのロジックが関与せず、悪意のあるコードをフィルタリングできない DOM ベースの XSS の特殊なケースからも保護します)。
+
 - 機密性の高い Cookie を httpOnly でマークして、JavaScript がアクセスできないようにします
 - Content-Security-Policy を利用して、JavaScript ベースの攻撃の攻撃対象領域を減らします
 - Angular のようなデフォルトで安全なフレームワークを使用します
@@ -92,11 +106,14 @@
 #### HTML の妥当性確認とサニタイジング
 
 ユーザーからの HTML を (コンテンツを HTML として表現する WYSIWYG エディタや、入力で HTML を直接受け入れる機能を介して) 受け入れる必要があるアプリケーションを考えてみます。このような状況では、バリデーションやエスケープは役立ちません。
+
 - 正規表現は HTML5 の複雑さを理解するのに十分な表現力がありません。
 - HTML をエンコードまたはエスケープしても、HTML が正しくレンダリングされなくなるため役に立ちません。
 
-したがって、HTML 形式のテキストを解析してクリーンにするライブラリが必要です。HTML サニタイゼーションの詳細については [XSS Prevention Cheat Sheet on HTML Sanitization](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet#RULE_.236_-_Sanitize_HTML_Markup_with_a_Library_Designed_for_the_Job) を参照してください。
+したがって、HTML 形式のテキストを解析してクリーンにするライブラリが必要です。HTML サニタイゼーションの詳細については [XSS Prevention Cheat Sheet on HTML Sanitization](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) を参照してください。
+
 ### 特殊なケース: デシリアライゼーション時のデータを妥当性確認する
+
 入力形式によっては、非常に複雑であるため、バリデーションではアプリケーションを最低限しか保護できません。たとえば、信頼できないデータや攻撃者が操作できるデータをデシリアライズするのは危険です。唯一の安全なアーキテクチャパターンは、信頼できないソースからシリアライズされたオブジェクトを受け入れないか、単純なデータ型のみに対して限られた容量でデシリアライズすることです。可能であれば、シリアライズされたデータ形式の処理は避け、JSON などの防御しやすい形式を使用すべきです。
 
 それが不可能であれば、シリアライズされたデータを処理する際に一覧のバリデーション防御を検討してください。
@@ -112,7 +129,7 @@
 
 - 入力バリデーションはアプリケーションの攻撃対象領域を減らし、時にはアプリケーションに対する攻撃をより困難にすることがあります。
 - 入力バリデーションは特定の攻撃に固有の特定の形式のデータにセキュリティを提供する技法であり、一般的なセキュリティルールとして確実に適用することはできません。
-- 入力バリデーションは [XSS](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet)、[SQL インジェクション](https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet) などの攻撃を防ぐ主な方法として使用すべきではありません。
+- 入力バリデーションは [XSS](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)、[SQL インジェクション](https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet) などの攻撃を防ぐ主な方法として使用すべきではありません。
 - [2023 CWE Top 25 - 3 Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')](https://cwe.mitre.org/data/definitions/89.html)
 - [2023 CWE Top 25 - 5 Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')](https://cwe.mitre.org/data/definitions/89.html)
 - [2023 CWE Top 25 - 16 Improper Neutralization of Special Elements used in a Command ('Command Injection')](https://cwe.mitre.org/data/definitions/77.html)
@@ -121,8 +138,8 @@
 ## 参考情報
 
 入力バリデーションについて:
+
 - [OWASP Cheat Sheet: Input Validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
-- [OWASP Cheat Sheet: iOS - Security Decisions via Untrusted Inputs](https://www.owasp.org/index.php/IOS_Developer_Cheat_Sheet#Security_Decisions_via_Untrusted_Inputs_.28M7.29)
 - [OWASP Testing Guide: Testing for Input Validation](https://www.owasp.org/index.php/Testing_for_Input_Validation)
 - [Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html)
 - [Injection Prevention Cheat Sheet in Java](https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_in_Java_Cheat_Sheet.html)
@@ -132,12 +149,16 @@
 ## ツール
 
 入力バリデーションの支援:
+
 - [OWASP Java HTML Sanitizer Project](https://www.owasp.org/index.php/OWASP_Java_HTML_Sanitizer)
 - [Java JSR-303/JSR-349 Bean Validation](http://beanvalidation.org/)
 - [Java Hibernate Validator](http://hibernate.org/validator/)[Apache Commons Validator](https://commons.apache.org/proper/commons-validator/)PHP’s [filter functions](https://secure.php.net/manual/en/book.filter.php)
 
 インジェクション攻撃のテスト:
-- Sqlmap.py
-- OWASP ZAP-based scans
+
+- [Sqlmap.py](https://sqlmap.org/)
+- [ZAP-based scans](https://www.zaproxy.org/)
+
 堅牢化の支援:
+
 - [CSP Evaluator](https://csp-evaluator.withgoogle.com/)
