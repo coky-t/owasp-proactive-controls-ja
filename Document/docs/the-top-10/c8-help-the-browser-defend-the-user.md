@@ -38,19 +38,19 @@
 情報漏洩はブラウザが暗号化されていないチャネル (HTTPS ではなく HTTP) で情報を送信したり、そもそも過剰な情報を (Referer ヘッダなどを通じて) 送信する場合に発生します。以下のメカニズムは情報漏洩の可能性を低減します。
 
 - **HTTP Strict Transport Security (HSTS)**: ブラウザが HTTPS でのみウェブサイトに接続するようにし、SSL ストリッピング攻撃を防ぎます。
-- **Content Security Policy (CSP)**: CSP ポリシーは HTTP 接続を自動的に HTTPS にアップグレードするようブラウザに指示できます。さらに、form-src ディレクティブのようなディレクティブを使用して、フォームが外部サイトにデータを送信することを防ぐことができます。
+- **Content Security Policy (CSP)**: CSP ポリシーは HTTP 接続を自動的に HTTPS にアップグレードするようブラウザに指示できます。さらに、'form-src' ディレクティブのようなディレクティブを使用して、フォームが外部サイトにデータを送信することを防ぐことができます。
 - **Referrer-Policy**: ページ間を移動する際、ブラウザの HTTP リクエストは送信リクエスト内に現在の URL を含みます。この URL は機密情報を含むことがあります。Referrer-Policy を使用すると、ウェブサイトはブラウザの動作を統一して、ウェブサイト間でどの情報を送信するか選択できます。
 - クッキーの **secure** フラグ: HTTP ヘッダではありませんが、このセキュリティフラグは情報漏洩に関連しています。設定した場合、ウェブブラウザは暗号化していない HTTP トランスポート経由でクッキーを送信しません。
 
 ### XSS の潜在的な影響を軽減するには
 
-Javascript ベースの XSS 攻撃は、何十年もの間、非常に一般的でした。脆弱性の潜在的な影響を軽減するために、ブラウザは XSS 攻撃の潜在的な影響を軽減する豊富な防御メカニズムを提供しています。
+JavaScript ベースの XSS 攻撃は、何十年もの間、非常に一般的でした。脆弱性の潜在的な影響を軽減するために、ブラウザは XSS 攻撃の潜在的な影響を軽減する豊富な防御メカニズムを提供しています。
 
 - **Content Security Policy (CSP)**: CSP はクロスサイトスクリプティング (XSS) やデータインジェクションなどのさまざまな攻撃を防ぐのに役立つ強力なツールです。Strict CSP ポリシーはインライン JavaScript とスタイルを効果的に無効化できるため、攻撃者が悪意のあるコンテンツを注入することをはるかに困難にします。
     **ホスト許可リスト CSP**: すべてのサードパーティ JavaScript をブロックすることで、攻撃対象領域を大幅に減らし、サードパーティライブラリの脆弱性の悪用を防止できます。
     **Strict CSP**: 'script-src' ディレクティブで nonce またはハッシュを使用する CSP ("strict CSP" と呼ばれることが多い) は XSS 脆弱性に対する強力な緩和策を提供します。オプションとして、CSP の 'strict-dynamic' キーワードを使用することで、strict CSP の実装を効率化し、必要に応じてサードパーティの JavaScript ライブラリとの互換性を確保できます。
     **Trusted Types**: これは安全なデータ型のみを DOM に挿入できるようにすることで、DOM ベースのクロスサイトスクリプティング脆弱性を防ぐのに役立つブラウザ API です。
-- クッキーの **httpOnly** フラグ: HTTP ヘッダではありませんが、このフラグを設定すると Javascript がこのクッキーにアクセスできなくなるため、特にセッションクッキーでは設定すべきです。
+- クッキーの **httpOnly** フラグ: HTTP ヘッダではありませんが、このフラグを設定すると JavaScript がこのクッキーにアクセスできなくなるため、特にセッションクッキーでは設定すべきです。
 
 ### クリックジャッキングを防ぐには
 
@@ -99,4 +99,4 @@ CSRF 攻撃はウェブブラウザとウェブサイト間の既存の信頼関
 - [Security Headers Quick Reference](https://web.dev/articles/security-headers)
 - [Fetch Metadata Request Headers](https://www.w3.org/TR/fetch-metadata/)
 - [Fetch Metadata Resource Isolation Policy](https://web.dev/articles/fetch-metadata)
-- [Canisue.com](https://caniuse.com/)
+- [Caniuse.com](https://caniuse.com/)
