@@ -56,7 +56,7 @@
 
 ## 参考情報
 
-- OWASP Cheat Sheet: [Third Party Javascript Management](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html#sandboxing-content)
+- OWASP Cheat Sheet: [Third Party JavaScript Management](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html#sandboxing-content)
 - [OpenSSF Scorecard - Security health metrics for Open Source](https://github.com/ossf/scorecard)
 
 ## ツール
