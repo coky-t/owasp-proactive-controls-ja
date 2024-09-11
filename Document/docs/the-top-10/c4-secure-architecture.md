@@ -12,6 +12,15 @@
 - **公開されているコンポーネント (「攻撃対象領域」) を特定して最小化する**: 攻撃者はそこにないものをすることはできません。
 - **多層防御を設計する**: コンポーネントが侵害された場合に何が起こるのか、および攻撃の潜在的な影響範囲について考えます。
 
+### ライブラリやフレームワークなどのサードパーティコンポーネントの使用
+
+すべての要件を手動で実装することは可能かもしれませんが、確立されて適切に保守されているサードパーティコンポーネントをベースにアーキテクチャを構築することを強くお勧めします。これには複数の利点があります。
+
+- **車輪の再実装はしない** で、他の人の (セキュリティの) 失敗から学びましょう。多くの場合、既存のライブラリやフレームワークはセキュリティ監査を受けており、セキュリティ問題が特定され、最終的に改善されています。他の人のセキュリティ作業から恩恵を受けましょう。
+- **安全なデフォルト**: 防御的で安全なデフォルトを提供するフレームワークが増えています。リスクのある動作を有効にするには、開発者による手動操作が必要です。
+- **その上で最新の状態に保つ**。メンテナンスされたフレームワークを使用することで恩恵を得られる一方で、そのフレームワークの新しいリリースを追跡して、セキュリティ上の注意点を確認するというメンテナンスの負担があることはご存じのとおりです。
+- **フレームワークと戦わない**。フレームワークを使用することが、すべてのステップでフレームワークと戦っているように感じるのであれば、その具体的なフレームワークはあなたの開発スタイルやアーキテクチャに適していないのかもしれません (あるいはその逆かもしれません)。
+
 ## 脅威
 
 - アプリケーションが隠蔽によるセキュリティ (security-by-obscurity) でのみ保護されている場合、アプリケーションをリバースエンジニアする攻撃者は難読化が解除されるや否や完全なパーミッションを有します。さらに、攻撃者はネットワークトラフィックを監視できます。難読化はコードレベルで実行されるかもしれませんが、ネットワークレベルのオペレーションは簡単に解析できます。
@@ -60,7 +69,7 @@
 - 第一に、セキュアアーキテクチャパターンはセキュリティ問題を解決しなければなりません。
 - 第二に、セキュアアーキテクチャパターンは特定のベンダーやテクノロジに縛られてはいけません。
 - 第三に、セキュアアーキテクチャパターンは脅威を軽減する方法を示さなければなりません。
-- 第四に、セキュアアーキテクチャパターンは再利用を容易にするために、脅威とコントロールについて標準化された用語を使用しなければなりません。 <sup>[^footnote-1]</sup>
+- 第四に、[セキュアアーキテクチャパターン](https://securitypatterns.io/what-is-a-security-pattern/) は再利用を容易にするために、脅威とコントロールについて標準化された用語を使用しなければなりません。
 
 アーキテクチャパターンは標準的なソリューションを使用して問題を解決する方法であり、カスタムソリューションを作成するものではありません。セキュアアーキテクチャパターンは既知のセキュリティ脅威に対してレビューされ強化された標準的なソリューションです。
 
@@ -80,11 +89,13 @@
 
 - <https://securitypatterns.io/what-is-a-security-pattern/>
 - <https://owasp.org/www-pdf-archive/Vanhilst_owasp_140319.pdf>
-- <https://cheatsheetseries.owasp.org/cheatsheets/Microservices_based_Security_Arch_Doc_Cheat_Sheet.html>
-- <https://cheatsheetseries.owasp.org/cheatsheets/Secure_Product_Design_Cheat_Sheet.html>
+- [OWASP Cheat Sheet Series: Attack Surface Analysis](https://cheatsheetseries.owasp.org/cheatsheets/Attack_Surface_Analysis_Cheat_Sheet.html)
+- [OWASP Cheat Sheet Series: Microservices-based Security Arch Doc](https://cheatsheetseries.owasp.org/cheatsheets/Microservices_based_Security_Arch_Doc_Cheat_Sheet.html)
+- [OWASP Cheat Sheet: Secure Product Design](https://cheatsheetseries.owasp.org/cheatsheets/Secure_Product_Design_Cheat_Sheet.html)
+- [OWASP Cheat Sheet: Threat Modeling](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
 
 ## ツール
 
-- maybe add some threat modeling tools here?
-
-[^footnote-1]: <https://securitypatterns.io/what-is-a-security-pattern/>
+- [OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/)
+- [Amazon AWS Threat-Composer](https://github.com/awslabs/threat-composer)
+- [StrideGPT](https://github.com/mrwadams/stride-gpt)
