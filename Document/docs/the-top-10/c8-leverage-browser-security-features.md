@@ -4,7 +4,7 @@
 
 ブラウザはほとんどのユーザーにとってウェブへの入り口です。そのため、堅牢なセキュリティ対策を採用して、さまざまな脅威からユーザーを守ることが重要です。このセクションではブラウザのセキュリティを強化するために実装できる技法とポリシーを説明します。
 
-現在、従来のウェブブラウザに焦点を当てていますが、API クライアントからスマートテレビまで、他のクライアントプログラムの世界も多様であることに注意してください。
+現在、従来のウェブブラウザに焦点を当てていますが、モバイルアプリ、API クライアントからスマートテレビまで、他のクライアントプログラムの世界も多様であることに注意してください。クライアントでどのようなクライアントサイドセキュリティ機能がサポートされているかを検証し、それぞれの HTTP ヘッダを使用して設定することをお勧めします。
 
 ### 補強型セキュリティとブラウザサポート
 
@@ -100,3 +100,7 @@ CSRF 攻撃はウェブブラウザとウェブサイト間の既存の信頼関
 - [Fetch Metadata Request Headers](https://www.w3.org/TR/fetch-metadata/)
 - [Fetch Metadata Resource Isolation Policy](https://web.dev/articles/fetch-metadata)
 - [Caniuse.com](https://caniuse.com/)
+- [OWASP Cheat Sheet Series: Clickjacking Defense](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)
+- [OWASP Cheat Sheet Series: Content Security Policy](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
+- [OWASP Cheat Sheet Series: CSRF Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+- [OWASP Cheat Sheet Series: HTTP Security Response Headers Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html)
