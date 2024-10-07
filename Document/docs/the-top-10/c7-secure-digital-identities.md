@@ -1,4 +1,4 @@
-# C7: デジタルアイデンティティを実装する (Implement Digital Identity)
+# C7: 安全なデジタルアイデンティティ (Secure Digital Identities)
 
 ## 説明
 
