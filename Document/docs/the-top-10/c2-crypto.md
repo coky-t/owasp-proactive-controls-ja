@@ -1,4 +1,4 @@
-# C2: 暗号を正しい方法で使用する (Use Cryptography the proper way)
+# C2: 暗号を使用してデータを保護する (Use Cryptography to Protect Data)
 
 ## 説明
 
