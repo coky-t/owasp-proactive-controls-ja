@@ -3,7 +3,7 @@
   "plugins" : [ "anchors" ],
 
   "structure": {
-    "readme": "introduction.md"
+    "readme": "index.md"
   }
 
 }

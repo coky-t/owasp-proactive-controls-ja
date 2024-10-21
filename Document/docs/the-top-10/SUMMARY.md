@@ -1,6 +1,6 @@
 # OWASP Top 10 Proactive Controls v4 (2024) 日本語版
 
-- [はじめに](introduction.md)
+- [はじめに](index.md)
 - [C1: アクセス制御を実装する (Implement Access Control)](c1-accesscontrol.md)
 - [C2: 暗号を使用してデータを保護する (Use Cryptography to Protect Data)](c2-crypto.md)
 - [C3: 信頼できないデータを検証、エスケープ、サニタイズ、パラメータ化する (Validate, Escape, Sanitize or Parameterize Untrusted Data)](c3-validate-input-and-handle-exceptions.md)

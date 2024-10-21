@@ -11,7 +11,7 @@ This is the unofficial Japanese translation of the [OWASP Proactive Controls](ht
 
 * [このプロジェクトについて](Document/docs/index.md)
 * [OWASP について](Document/docs/introduction/about-owasp.md)
-* [はじめに](Document/docs/the-top-10/introduction.md)
+* [はじめに](Document/docs/the-top-10/index.md)
 * [C1: アクセス制御を実装する (Implement Access Control)](Document/docs/the-top-10/c1-accesscontrol.md)
 * [C2: 暗号を使用してデータを保護する (Use Cryptography to Protect Data)](Document/docs/the-top-10/c2-crypto.md)
 * [C3: 信頼できないデータを検証、エスケープ、サニタイズ、パラメータ化する (Validate, Escape, Sanitize or Parameterize Untrusted Data)](Document/docs/the-top-10/c3-validate-input-and-handle-exceptions.md)
