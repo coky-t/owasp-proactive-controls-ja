@@ -7,7 +7,7 @@ This is the unofficial Japanese translation of the [OWASP Proactive Controls](ht
 - Project Site - <https://top10proactive.owasp.org/>
 - Project Repository - <https://github.com/OWASP/www-project-proactive-controls>
 
-# OWASP Top 10 Proactive Controls v4 (2024) 日本語版
+## OWASP Top 10 Proactive Controls v4 (2024) 日本語版
 
 * [このプロジェクトについて](Document/docs/index.md)
 * [OWASP について](Document/docs/introduction/about-owasp.md)
