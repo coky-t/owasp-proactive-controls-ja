@@ -133,7 +133,7 @@
 - 入力バリデーションは特定の攻撃に固有の特定の形式のデータにセキュリティを提供する技法であり、一般的なセキュリティルールとして確実に適用することはできません。
 - 入力バリデーションは [XSS](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)、[SQL インジェクション](https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet) などの攻撃を防ぐ主な方法として使用すべきではありません。
 - [2023 CWE Top 25 - 3 Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')](https://cwe.mitre.org/data/definitions/89.html)
-- [2023 CWE Top 25 - 5 Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')](https://cwe.mitre.org/data/definitions/89.html)
+- [2023 CWE Top 25 - 5 Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')](https://cwe.mitre.org/data/definitions/78.html)
 - [2023 CWE Top 25 - 16 Improper Neutralization of Special Elements used in a Command ('Command Injection')](https://cwe.mitre.org/data/definitions/77.html)
 - [2023 CWE Top 25 - 23 Improper Control of Generation of Code ('Code Injection')](https://cwe.mitre.org/data/definitions/94.html)
 
