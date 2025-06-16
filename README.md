@@ -2,6 +2,9 @@
 
 This is the unofficial Japanese translation of the [OWASP Proactive Controls](https://github.com/OWASP/www-project-proactive-controls).
 
+- Document Site - <https://coky-t.gitbook.io/owasp-proactive-controls-ja/>
+- Document Repository - <https://github.com/coky-t/owasp-proactive-controls-ja>
+
 ### Originator
 
 - Project Site - <https://top10proactive.owasp.org/>
@@ -31,3 +34,6 @@ This is the unofficial Japanese translation of the [OWASP Proactive Controls](ht
 ## Translator (Japanese)
 
 [Koki Takeyama](https://github.com/coky-t)
+
+- Document Site - <https://coky-t.gitbook.io/owasp-docs-ja/>
+- Document Repository - <https://github.com/coky-t/owasp-docs-ja>
