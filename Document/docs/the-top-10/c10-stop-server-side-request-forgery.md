@@ -20,7 +20,7 @@ SSRF を防ぐ方法は複数あります。
 
 - 入力バリデーション
 - 送信リクエストを作成する必要がある場合、ターゲットを許可リストと照合します
-- XML を使用する場合、XEE を防ぐためにパーサーを安全に構成します
+- XML を使用する場合、XXE を防ぐためにパーサーを安全に構成します
 
 入力バリデーションを実行する際には [Unicode およびその他の文字変換](https://cheatsheetseries.owasp.org/assets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet_Orange_Tsai_Talk.pdf) に注意してください。
 
