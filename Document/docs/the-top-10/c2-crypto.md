@@ -120,7 +120,7 @@
 - [OWASP O-Saft TLS Tool](https://www.owasp.org/index.php/O-Saft) - TLS 接続テストツール
 - [GitRob](https://github.com/michenriksen/gitrob) - GitHub で公開されているファイル内の機密情報を見つけるコマンドラインツール
 - [TruffleHog](https://github.com/dxa4481/truffleHog) - 誤ってコミットしてシークレットを検索します
-- [Hashicorp Vault](https://www.vaultproject.io/) - シークレットマネージャ
+- [Hashicorp Vault](https://developer.hashicorp.com/vault) - シークレットマネージャ
 - [Amazon KMS](https://aws.amazon.com/kms/) - AWS 上の鍵を管理します
 - [AWS Secrets Manager](https://aws.amazon.com/secrets-manager) - AWS 上のシークレットを管理します
 - [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault) - Azure 上の鍵とシークレットを管理します
